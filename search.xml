@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>My first Blog</title>
+      <link href="2021/02/04/My-new-Blog/"/>
+      <url>2021/02/04/My-new-Blog/</url>
+      
+        <content type="html"><![CDATA[<h2 id="stack的应用"><a href="#stack的应用" class="headerlink" title="stack的应用"></a>stack的应用</h2><ul><li>题目来源<a href="https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472">https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472</a><pre class=" language-c++"><code class="language-c++">#include <bits/stdc++.h>using namespace std;int main() &#123;int n;set<string> s;cin >> n;for (int i = 0; i < n; i++) &#123;  string name;  cin >> name;  s.insert(name);&#125;int m,ave=0;map<string, int> mp;cin >> m;for (int i = 0; i < m; i++) &#123;  string name;  int a;  cin >> name >> a;  ave += a;  mp[name] = a;&#125;ave /= m;int f = 0;for (auto i:mp) &#123;  //s.find(i.first) == s.end();  if (i.second>ave && s.count(i.first)==0) &#123;    if (f) &#123;      cout << '\n';    &#125;    cout << i.first;    f = 1;  &#125;&#125;if (f==0) &#123;  cout << "bing mei you";&#125;return 0;&#125;</code></pre></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> c++ , STL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

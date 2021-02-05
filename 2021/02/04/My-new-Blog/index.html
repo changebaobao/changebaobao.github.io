@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -435,7 +435,46 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="stack的应用"><a href="#stack的应用" class="headerlink" title="stack的应用"></a>stack的应用</h2><ul>
-<li>题目来源<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472">https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472</a><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; s;</span><br><span class="line">  <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; name;</span><br><span class="line">    s.insert(name);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> m,ave=<span class="number">0</span>;</span><br><span class="line">  <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line">  <span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; name &gt;&gt; a;</span><br><span class="line">    ave += a;</span><br><span class="line">    mp[name] = a;</span><br><span class="line">  &#125;</span><br><span class="line">  ave /= m;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> i:mp) &#123;</span><br><span class="line">    <span class="comment">//s.find(i.first) == s.end();</span></span><br><span class="line">    <span class="keyword">if</span> (i.second&gt;ave &amp;&amp; s.count(i.first)==<span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (f) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; i.first;</span><br><span class="line">      f = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (f==<span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;bing mei you&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>题目来源<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472">https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472</a><pre class=" language-c++"><code class="language-c++">#include <bits/stdc++.h>
+using namespace std;
+int main() &#123;
+int n;
+set<string> s;
+cin >> n;
+for (int i = 0; i < n; i++) &#123;
+  string name;
+  cin >> name;
+  s.insert(name);
+&#125;
+int m,ave=0;
+map<string, int> mp;
+cin >> m;
+for (int i = 0; i < m; i++) &#123;
+  string name;
+  int a;
+  cin >> name >> a;
+  ave += a;
+  mp[name] = a;
+&#125;
+ave /= m;
+int f = 0;
+for (auto i:mp) &#123;
+  //s.find(i.first) == s.end();
+  if (i.second>ave && s.count(i.first)==0) &#123;
+    if (f) &#123;
+      cout << '\n';
+    &#125;
+    cout << i.first;
+    f = 1;
+  &#125;
+&#125;
+if (f==0) &#123;
+  cout << "bing mei you";
+&#125;
+return 0;
+&#125;
+</code></pre>
+</li>
 </ul>
 
                 
@@ -717,16 +756,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/04/hello-world/">
+                <a href="/2021/02/04/My-new-Blog/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="My first Blog">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">My first Blog</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -746,6 +785,15 @@
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/c-STL/">
+                        <span class="chip bg-color">c++ , STL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
