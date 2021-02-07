@@ -8,7 +8,7 @@
       <link href="2021/02/07/iterator/"/>
       <url>2021/02/07/iterator/</url>
       
-        <content type="html"><![CDATA[<h2 id="关于迭代器"><a href="#关于迭代器" class="headerlink" title="关于迭代器"></a>关于迭代器</h2><pre class=" language-c++"><code class="language-c++">vector<int>::iterator it=v.begin();auto it=v.begin();   //两者是等价的</code></pre><ul><li>在这里it类似于一个指针，指向v的第一个元素；</li><li>it等价于&amp;v[0],*it等价于v[0];</li><li>it也可以进行加减操作，eg：it+3指向第四个元素；</li><li>it++后，it指向的就是v的第二个元素(v[1])了；</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="关于迭代器"><a href="#关于迭代器" class="headerlink" title="关于迭代器"></a>关于迭代器</h2><pre class=" language-c++"><code class="language-c++">vector&lt;int&gt;::iterator it=v.begin();auto it=v.begin();   //两者是等价的</code></pre><ul><li>在这里it类似于一个指针，指向v的第一个元素；</li><li>it等价于&amp;v[0],*it等价于v[0];</li><li>it也可以进行加减操作，eg：it+3指向第四个元素；</li><li>it++后，it指向的就是v的第二个元素(v[1])了；</li></ul>]]></content>
       
       
       <categories>
@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> STL </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> STL </tag>
             
         </tags>
       
@@ -35,7 +35,7 @@
       <link href="2021/02/07/queue/"/>
       <url>2021/02/07/queue/</url>
       
-        <content type="html"><![CDATA[<h2 id="queue-队列"><a href="#queue-队列" class="headerlink" title="queue(队列)"></a>queue(队列)</h2><pre class=" language-c++"><code class="language-c++">queue<type> q;  //创建一个类型为type的队列qq.push(item);   //在队尾添加元素itemq.size();q.pop();q.front();q.empty();</code></pre><h2 id="priority-queue-优先队列"><a href="#priority-queue-优先队列" class="headerlink" title="priority_queue(优先队列)"></a>priority_queue(优先队列)</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><pre class=" language-c++"><code class="language-c++">//默认为数值大在队首top（从大到小排）priority_queue<char> q;/*等价于*/priority_queue<int, vector<int>, less<int> >q;//以下格式为数值小的在队首，即从小到大排priority_queue<int, vector<int>, greater<int> >q;</code></pre><pre class=" language-c++"><code class="language-c++">q.push(item);   //在队尾添加元素itemq.size();q.pop();q.top();q.empty();</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="queue-队列"><a href="#queue-队列" class="headerlink" title="queue(队列)"></a>queue(队列)</h2><pre class=" language-c++"><code class="language-c++">queue&lt;type&gt; q;  //创建一个类型为type的队列qq.push(item);   //在队尾添加元素itemq.size();q.pop();q.front();q.empty();</code></pre><h2 id="priority-queue-优先队列"><a href="#priority-queue-优先队列" class="headerlink" title="priority_queue(优先队列)"></a>priority_queue(优先队列)</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><pre class=" language-c++"><code class="language-c++">//默认为数值大在队首top（从大到小排）priority_queue&lt;char&gt; q;/*等价于*/priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt;q;//以下格式为数值小的在队首，即从小到大排priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt;q;</code></pre><pre class=" language-c++"><code class="language-c++">q.push(item);   //在队尾添加元素itemq.size();q.pop();q.top();q.empty();</code></pre>]]></content>
       
       
       <categories>
@@ -47,9 +47,9 @@
       
         <tags>
             
-            <tag> STL </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> STL </tag>
             
         </tags>
       
@@ -62,7 +62,7 @@
       <link href="2021/02/07/map/"/>
       <url>2021/02/07/map/</url>
       
-        <content type="html"><![CDATA[<h2 id="map（映射）"><a href="#map（映射）" class="headerlink" title="map（映射）"></a>map（映射）</h2><h3 id="建立方法："><a href="#建立方法：" class="headerlink" title="建立方法："></a>建立方法：</h3><pre class=" language-C++"><code class="language-C++">map<key,value> mp;unordered_map<key,value></code></pre><h3 id="遍历方法："><a href="#遍历方法：" class="headerlink" title="遍历方法："></a>遍历方法：</h3><pre class=" language-c++"><code class="language-c++">for (auto i:mp) {    cout << i.first << " " << i.second << endl;}</code></pre><h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数:"></a>常用函数:</h3><pre class=" language-C++"><code class="language-C++">mp.size();  //获取元素个数mp.empty();  //判断是否为空mp.clear();  //清空mpmp.begin();  //返回mp中最小key的迭代器，和set一样，只可以用到--和++操作mp.end();   //返回mp最大key的迭代器的后一个迭代器mp.find(key);  //在mp中查找一个key并返回其迭代器，找不到则返回mp.end（）mp.count(key);  //在mp中查找key的数量，因为map中key唯一，所以只返回1或0mp.erase(key); //在mp中删除key所在的项mp[key];  //返回mp中key对应的value，若key不存在，则默认构造key的value类型的值为0mp[key] = value;  //构造值mp.lower_bound(item); //返回map中第一个key大于等于item的迭代器，找不到则返回会mp.end()mp.upper_bound(item); //返回map中第一个key大于item的迭代器，找不到则返回会mp.end()</code></pre><h3 id="unordered的作用："><a href="#unordered的作用：" class="headerlink" title="unordered的作用："></a>unordered的作用：</h3><p>使得set和map内部元素不按排序顺序存储</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="map（映射）"><a href="#map（映射）" class="headerlink" title="map（映射）"></a>map（映射）</h2><h3 id="建立方法："><a href="#建立方法：" class="headerlink" title="建立方法："></a>建立方法：</h3><pre class=" language-C++"><code class="language-C++">map&lt;key,value&gt; mp;unordered_map&lt;key,value&gt;</code></pre><h3 id="遍历方法："><a href="#遍历方法：" class="headerlink" title="遍历方法："></a>遍历方法：</h3><pre class=" language-c++"><code class="language-c++">for (auto i:mp) {    cout &lt;&lt; i.first &lt;&lt; " " &lt;&lt; i.second &lt;&lt; endl;}</code></pre><h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数:"></a>常用函数:</h3><pre class=" language-C++"><code class="language-C++">mp.size();  //获取元素个数mp.empty();  //判断是否为空mp.clear();  //清空mpmp.begin();  //返回mp中最小key的迭代器，和set一样，只可以用到--和++操作mp.end();   //返回mp最大key的迭代器的后一个迭代器mp.find(key);  //在mp中查找一个key并返回其迭代器，找不到则返回mp.end（）mp.count(key);  //在mp中查找key的数量，因为map中key唯一，所以只返回1或0mp.erase(key); //在mp中删除key所在的项mp[key];  //返回mp中key对应的value，若key不存在，则默认构造key的value类型的值为0mp[key] = value;  //构造值mp.lower_bound(item); //返回map中第一个key大于等于item的迭代器，找不到则返回会mp.end()mp.upper_bound(item); //返回map中第一个key大于item的迭代器，找不到则返回会mp.end()</code></pre><h3 id="unordered的作用："><a href="#unordered的作用：" class="headerlink" title="unordered的作用："></a>unordered的作用：</h3><p>使得set和map内部元素不按排序顺序存储</p>]]></content>
       
       
       <categories>
@@ -74,9 +74,9 @@
       
         <tags>
             
-            <tag> STL </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> STL </tag>
             
         </tags>
       
@@ -89,7 +89,7 @@
       <link href="2021/02/04/My-new-Blog/"/>
       <url>2021/02/04/My-new-Blog/</url>
       
-        <content type="html"><![CDATA[<h2 id="mp的基本应用"><a href="#mp的基本应用" class="headerlink" title="mp的基本应用"></a>mp的基本应用</h2><ul><li>题目来源<a href="https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472">https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472</a><pre class=" language-c++"><code class="language-c++">#include <bits/stdc++.h>using namespace std;int main() {int n;set<string> s;cin >> n;for (int i = 0; i < n; i++) {  string name;  cin >> name;  s.insert(name);}int m,ave=0;map<string, int> mp;cin >> m;for (int i = 0; i < m; i++) {  string name;  int a;  cin >> name >> a;  ave += a;  mp[name] = a;}ave /= m;int f = 0;for (auto i:mp) {  //s.find(i.first) == s.end();  if (i.second>ave && s.count(i.first)==0) {    if (f) {      cout << '\n';    }    cout << i.first;    f = 1;  }}if (f==0) {  cout << "bing mei you";}return 0;}</code></pre></li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="mp的基本应用"><a href="#mp的基本应用" class="headerlink" title="mp的基本应用"></a>mp的基本应用</h2><ul><li>题目来源<a href="https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472">https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472</a><pre class=" language-c++"><code class="language-c++">#include &lt;bits/stdc++.h&gt;using namespace std;int main() {int n;set&lt;string&gt; s;cin &gt;&gt; n;for (int i = 0; i &lt; n; i++) {  string name;  cin &gt;&gt; name;  s.insert(name);}int m,ave=0;map&lt;string, int&gt; mp;cin &gt;&gt; m;for (int i = 0; i &lt; m; i++) {  string name;  int a;  cin &gt;&gt; name &gt;&gt; a;  ave += a;  mp[name] = a;}ave /= m;int f = 0;for (auto i:mp) {  //s.find(i.first) == s.end();  if (i.second&gt;ave && s.count(i.first)==0) {    if (f) {      cout &lt;&lt; '\n';    }    cout &lt;&lt; i.first;    f = 1;  }}if (f==0) {  cout &lt;&lt; "bing mei you";}return 0;}</code></pre></li></ul>]]></content>
       
       
       <categories>

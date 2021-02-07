@@ -305,13 +305,12 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    关于迭代器vector::iterator it=v.begin();
+                                    关于迭代器vector&lt;int&gt;::iterator it=v.begin();
 auto it=v.begin();   //两者是等价的
 
 
 在这里it类似于一个指针，指向v的第一个元素；
-it等价于&amp;v[0],*it等价于v[0];
-i
+it等价于&amp;v[0],*i
                                 
                             </div>
                             <div class="publish-info">
@@ -334,9 +333,9 @@ i
                         
                         <div class="card-action article-tags">
                             
-                            <a href="/tags/STL/"><span class="chip bg-color">STL</span></a>
-                            
                             <a href="/tags/C/"><span class="chip bg-color">C++</span></a>
+                            
+                            <a href="/tags/STL/"><span class="chip bg-color">STL</span></a>
                             
                         </div>
                         
@@ -372,14 +371,13 @@ i
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    queue(队列)queue q;  //创建一个类型为type的队列q
+                                    queue(队列)queue&lt;type&gt; q;  //创建一个类型为type的队列q
 q.push(item);   //在队尾添加元素item
 q.size();
 q.pop();
 q.front();
 q.empty();
 
-priority_qu
                                 
                             </div>
                             <div class="publish-info">
@@ -402,9 +400,9 @@ priority_qu
                         
                         <div class="card-action article-tags">
                             
-                            <a href="/tags/STL/"><span class="chip bg-color">STL</span></a>
-                            
                             <a href="/tags/C/"><span class="chip bg-color">C++</span></a>
+                            
+                            <a href="/tags/STL/"><span class="chip bg-color">STL</span></a>
                             
                         </div>
                         
@@ -440,13 +438,11 @@ priority_qu
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    map（映射）建立方法：map mp;
-unordered_map
+                                    map（映射）建立方法：map&lt;key,value&gt; mp;
+unordered_map&lt;key,value&gt;
 
 遍历方法：for (auto i:mp) {
-    cout < i.first < " " < i.second < endl;
-}
-
+    cout &lt;&lt; i.first &l
                                 
                             </div>
                             <div class="publish-info">
@@ -469,9 +465,9 @@ unordered_map
                         
                         <div class="card-action article-tags">
                             
-                            <a href="/tags/STL/"><span class="chip bg-color">STL</span></a>
-                            
                             <a href="/tags/C/"><span class="chip bg-color">C++</span></a>
+                            
+                            <a href="/tags/STL/"><span class="chip bg-color">STL</span></a>
                             
                         </div>
                         
