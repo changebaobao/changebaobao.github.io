@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Map, changebaobao">
+    <meta name="keywords" content="iterator（迭代器）, changebaobao">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Map | changebaobao</title>
+    <title>iterator（迭代器） | changebaobao</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -222,12 +222,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Map</h1>
+                    <h1 class="description center-align post-title">iterator（迭代器）</h1>
                 </div>
             </div>
         </div>
@@ -347,8 +347,8 @@
                                 <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/STL/">
+                                <span class="chip bg-color">STL</span>
                             </a>
                         
                     </div>
@@ -372,14 +372,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-04
+                    2021-02-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-06
+                    2021-02-07
                 </div>
                 
 
@@ -403,47 +403,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="mp的基本应用"><a href="#mp的基本应用" class="headerlink" title="mp的基本应用"></a>mp的基本应用</h2><ul>
-<li>题目来源<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472">https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472</a><pre class=" language-c++"><code class="language-c++">#include <bits/stdc++.h>
-using namespace std;
-int main() &#123;
-int n;
-set<string> s;
-cin >> n;
-for (int i = 0; i < n; i++) &#123;
-  string name;
-  cin >> name;
-  s.insert(name);
-&#125;
-int m,ave=0;
-map<string, int> mp;
-cin >> m;
-for (int i = 0; i < m; i++) &#123;
-  string name;
-  int a;
-  cin >> name >> a;
-  ave += a;
-  mp[name] = a;
-&#125;
-ave /= m;
-int f = 0;
-for (auto i:mp) &#123;
-  //s.find(i.first) == s.end();
-  if (i.second>ave && s.count(i.first)==0) &#123;
-    if (f) &#123;
-      cout << '\n';
-    &#125;
-    cout << i.first;
-    f = 1;
-  &#125;
-&#125;
-if (f==0) &#123;
-  cout << "bing mei you";
-&#125;
-return 0;
-&#125;
+                <h2 id="关于迭代器"><a href="#关于迭代器" class="headerlink" title="关于迭代器"></a>关于迭代器</h2><pre class=" language-c++"><code class="language-c++">vector<int>::iterator it=v.begin();
+auto it=v.begin();   //两者是等价的
 </code></pre>
-</li>
+<ul>
+<li>在这里it类似于一个指针，指向v的第一个元素；</li>
+<li>it等价于&amp;v[0],*it等价于v[0];</li>
+<li>it也可以进行加减操作，eg：it+3指向第四个元素；</li>
+<li>it++后，it指向的就是v的第二个元素(v[1])了；</li>
 </ul>
 
                 
@@ -471,7 +438,7 @@ return 0;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://changebaobao.github.io/2021/02/04/My-new-Blog/">http://changebaobao.github.io/2021/02/04/My-new-Blog/</a>
+                    <a href="http://changebaobao.github.io/2021/02/07/iterator/">http://changebaobao.github.io/2021/02/07/iterator/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -513,8 +480,8 @@ return 0;
                                     <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/STL/">
+                                    <span class="chip bg-color">STL</span>
                                 </a>
                             
                         </div>
@@ -681,81 +648,29 @@ return 0;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/02/07/map/">
+                <a href="/2021/02/07/iterator/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="map（映射）">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="iterator（迭代器）">
                         
-                        <span class="card-title">map（映射）</span>
+                        <span class="card-title">iterator（迭代器）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-07
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/STL/">
-                        <span class="chip bg-color">STL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/04/My-new-Blog/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Map">
-                        
-                        <span class="card-title">Map</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            mp的基本应用
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-07
                             </span>
                         <span class="publish-author">
                             
@@ -777,8 +692,61 @@ return 0;
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/STL/">
+                        <span class="chip bg-color">STL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/07/queue/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="queue（队列）">
+                        
+                        <span class="card-title">queue（队列）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/STL/">
+                        <span class="chip bg-color">STL</span>
                     </a>
                     
                 </div>
