@@ -15,6 +15,10 @@
           
           <category> 算法 </category>
           
+          <category> STL </category>
+          
+          <category> C++ </category>
+          
       </categories>
       
       
@@ -35,23 +39,19 @@
       <link href="2021/02/07/queue/"/>
       <url>2021/02/07/queue/</url>
       
-        <content type="html"><![CDATA[<h2 id="queue-队列"><a href="#queue-队列" class="headerlink" title="queue(队列)"></a>queue(队列)</h2><pre class=" language-c++"><code class="language-c++">queue&lt;type&gt; q;  //创建一个类型为type的队列qq.push(item);   //在队尾添加元素itemq.size();q.pop();q.front();q.empty();</code></pre><h2 id="priority-queue-优先队列"><a href="#priority-queue-优先队列" class="headerlink" title="priority_queue(优先队列)"></a>priority_queue(优先队列)</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><pre class=" language-c++"><code class="language-c++">//默认为数值大在队首top（从大到小排）priority_queue&lt;char&gt; q;/*等价于*/priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt;q;//以下格式为数值小的在队首，即从小到大排priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt;q;</code></pre><pre class=" language-c++"><code class="language-c++">q.push(item);   //在队尾添加元素itemq.size();q.pop();q.top();q.empty();</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="queue-队列"><a href="#queue-队列" class="headerlink" title="queue(队列)"></a>queue(队列)</h2><pre class=" language-c++"><code class="language-c++">queue&lt; type &gt; q;  //创建一个类型为type的队列qq.push(item);   //在队尾添加元素itemq.size();q.pop();q.front();q.empty();</code></pre><h2 id="priority-queue-优先队列"><a href="#priority-queue-优先队列" class="headerlink" title="priority_queue(优先队列)"></a>priority_queue(优先队列)</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><pre class=" language-c++"><code class="language-c++">//默认为数值大在队首top（从大到小排）priority_queue&lt;char&gt; q;/*等价于*/priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt;q;//以下格式为数值小的在队首，即从小到大排priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt;q;</code></pre><pre class=" language-c++"><code class="language-c++">q.push(item);   //在队尾添加元素itemq.size();q.pop();q.top();q.empty();</code></pre>]]></content>
       
       
       <categories>
+          
+          <category> C++ </category>
+          
+          <category> STL </category>
           
           <category> 算法 </category>
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> STL </tag>
-            
-            <tag> C++ </tag>
-            
-        </tags>
       
     </entry>
     
@@ -69,43 +69,12 @@
           
           <category> 算法 </category>
           
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> STL </tag>
-            
-            <tag> C++ </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Map</title>
-      <link href="2021/02/04/My-new-Blog/"/>
-      <url>2021/02/04/My-new-Blog/</url>
-      
-        <content type="html"><![CDATA[<h2 id="mp的基本应用"><a href="#mp的基本应用" class="headerlink" title="mp的基本应用"></a>mp的基本应用</h2><ul><li>题目来源<a href="https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472">https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472</a><pre class=" language-c++"><code class="language-c++">#include &lt;bits/stdc++.h&gt;using namespace std;int main() {int n;set&lt;string&gt; s;cin &gt;&gt; n;for (int i = 0; i &lt; n; i++) {  string name;  cin &gt;&gt; name;  s.insert(name);}int m,ave=0;map&lt;string, int&gt; mp;cin &gt;&gt; m;for (int i = 0; i &lt; m; i++) {  string name;  int a;  cin &gt;&gt; name &gt;&gt; a;  ave += a;  mp[name] = a;}ave /= m;int f = 0;for (auto i:mp) {  //s.find(i.first) == s.end();  if (i.second&gt;ave && s.count(i.first)==0) {    if (f) {      cout &lt;&lt; '\n';    }    cout &lt;&lt; i.first;    f = 1;  }}if (f==0) {  cout &lt;&lt; "bing mei you";}return 0;}</code></pre></li></ul>]]></content>
-      
-      
-      <categories>
+          <category> STL </category>
           
-          <category> 算法 </category>
+          <category> C++ </category>
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> 算法 </tag>
-            
-        </tags>
       
     </entry>
     
