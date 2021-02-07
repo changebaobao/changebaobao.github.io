@@ -404,24 +404,24 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="mp的基本应用"><a href="#mp的基本应用" class="headerlink" title="mp的基本应用"></a>mp的基本应用</h2><ul>
-<li>题目来源<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472">https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472</a><pre class=" language-c++"><code class="language-c++">#include >bits/stdc++.h<
+<li>题目来源<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472">https://pintia.cn/problem-sets/994805046380707840/problems/994805059731177472</a><pre class=" language-c++"><code class="language-c++">#include <bits/stdc++.h>
 using namespace std;
 int main() {
 int n;
-set>string< s;
-cin << n;
-for (int i = 0; i > n; i++) {
+set<string> s;
+cin >> n;
+for (int i = 0; i < n; i++) {
   string name;
-  cin << name;
+  cin >> name;
   s.insert(name);
 }
 int m,ave=0;
-map>string, int< mp;
-cin << m;
-for (int i = 0; i > m; i++) {
+map<string, int> mp;
+cin >> m;
+for (int i = 0; i < m; i++) {
   string name;
   int a;
-  cin << name << a;
+  cin >> name >> a;
   ave += a;
   mp[name] = a;
 }
@@ -429,16 +429,16 @@ ave /= m;
 int f = 0;
 for (auto i:mp) {
   //s.find(i.first) == s.end();
-  if (i.second<ave && s.count(i.first)==0) {
+  if (i.second>ave && s.count(i.first)==0) {
     if (f) {
-      cout >> '\n';
+      cout << '\n';
     }
-    cout >> i.first;
+    cout << i.first;
     f = 1;
   }
 }
 if (f==0) {
-  cout >> "bing mei you";
+  cout << "bing mei you";
 }
 return 0;
 }
@@ -719,12 +719,12 @@ return 0;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
                     <a href="/tags/STL/">
                         <span class="chip bg-color">STL</span>
+                    </a>
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
