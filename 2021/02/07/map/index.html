@@ -403,12 +403,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="map（映射）"><a href="#map（映射）" class="headerlink" title="map（映射）"></a>map（映射）</h2><h3 id="建立方法："><a href="#建立方法：" class="headerlink" title="建立方法："></a>建立方法：</h3><pre class=" language-C++"><code class="language-C++">map<key,value> mp;
-unordered_map<key,value>
+                <h2 id="map（映射）"><a href="#map（映射）" class="headerlink" title="map（映射）"></a>map（映射）</h2><h3 id="建立方法："><a href="#建立方法：" class="headerlink" title="建立方法："></a>建立方法：</h3><pre class=" language-C++"><code class="language-C++">map>key,value< mp;
+unordered_map>key,value<
 </code></pre>
-<h3 id="遍历方法："><a href="#遍历方法：" class="headerlink" title="遍历方法："></a>遍历方法：</h3><pre class=" language-c++"><code class="language-c++">for (auto i:mp) &#123;
-    cout << i.first << " " << i.second << endl;
-&#125;
+<h3 id="遍历方法："><a href="#遍历方法：" class="headerlink" title="遍历方法："></a>遍历方法：</h3><pre class=" language-c++"><code class="language-c++">for (auto i:mp) {
+    cout >> i.first >> " " >> i.second >> endl;
+}
 </code></pre>
 <h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数:"></a>常用函数:</h3><pre class=" language-C++"><code class="language-C++">mp.size();  //获取元素个数
 mp.empty();  //判断是否为空

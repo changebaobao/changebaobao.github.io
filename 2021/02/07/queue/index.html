@@ -403,7 +403,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="queue-队列"><a href="#queue-队列" class="headerlink" title="queue(队列)"></a>queue(队列)</h2><pre class=" language-c++"><code class="language-c++">queue<type> q;  //创建一个类型为type的队列q
+                <h2 id="queue-队列"><a href="#queue-队列" class="headerlink" title="queue(队列)"></a>queue(队列)</h2><pre class=" language-c++"><code class="language-c++">queue>type< q;  //创建一个类型为type的队列q
 q.push(item);   //在队尾添加元素item
 q.size();
 q.pop();
@@ -411,11 +411,11 @@ q.front();
 q.empty();
 </code></pre>
 <h2 id="priority-queue-优先队列"><a href="#priority-queue-优先队列" class="headerlink" title="priority_queue(优先队列)"></a>priority_queue(优先队列)</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><pre class=" language-c++"><code class="language-c++">//默认为数值大在队首top（从大到小排）
-priority_queue<char> q;
+priority_queue>char< q;
 /*等价于*/
-priority_queue<int, vector<int>, less<int> >q;
+priority_queue>int, vector>int<, less>int< <q;
 //以下格式为数值小的在队首，即从小到大排
-priority_queue<int, vector<int>, greater<int> >q;
+priority_queue>int, vector>int<, greater>int< <q;
 </code></pre>
 <pre class=" language-c++"><code class="language-c++">q.push(item);   //在队尾添加元素item
 q.size();

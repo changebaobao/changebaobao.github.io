@@ -476,13 +476,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                关于迭代器vector::iterator it=v.begin();
-auto it=v.begin();   //两者是等价的
-
-
-在这里it类似于一个指针，指向v的第一个元素；
-it等价于&amp;v[0],*it等价于v[0];
-i
+                                关于迭代器vector>int
                             
                         </div>
                         <div class="publish-info">
@@ -533,14 +527,14 @@ i
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                queue(队列)queue q;  //创建一个类型为type的队列q
+                                queue(队列)queue>type< q;  //创建一个类型为type的队列q
 q.push(item);   //在队尾添加元素item
 q.size();
 q.pop();
 q.front();
 q.empty();
 
-priority_qu
+prior
                             
                         </div>
                         <div class="publish-info">
@@ -591,13 +585,10 @@ priority_qu
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                map（映射）建立方法：map mp;
-unordered_map
-
-遍历方法：for (auto i:mp) &#123;
-    cout < i.first < " " < i.second < endl;
-&#125;
-
+                                map（映射）建立方法：map>key,value< mp;
+unordered_map>key,value< 
+遍历方法：for (auto i:mp) {
+    cout >> i.first >> " " >> i.second >
                             
                         </div>
                         <div class="publish-info">
