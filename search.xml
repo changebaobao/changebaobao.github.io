@@ -13,8 +13,6 @@
       
       <categories>
           
-          <category> 算法 </category>
-          
           <category> STL </category>
           
           <category> C++ </category>
@@ -31,7 +29,7 @@
       <link href="2021/02/07/queue/"/>
       <url>2021/02/07/queue/</url>
       
-        <content type="html"><![CDATA[<h2 id="queue-队列"><a href="#queue-队列" class="headerlink" title="queue(队列)"></a>queue(队列)</h2><pre class=" language-c++"><code class="language-c++">queue&lt; type &gt; q;  //创建一个类型为type的队列qq.push(item);   //在队尾添加元素itemq.size();q.pop();q.front();q.empty();</code></pre><h2 id="priority-queue-优先队列"><a href="#priority-queue-优先队列" class="headerlink" title="priority_queue(优先队列)"></a>priority_queue(优先队列)</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><pre class=" language-c++"><code class="language-c++">//默认为数值大在队首top（从大到小排）priority_queue&lt;char&gt; q;/*等价于*/priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt;q;//以下格式为数值小的在队首，即从小到大排priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt;q;</code></pre><pre class=" language-c++"><code class="language-c++">q.push(item);   //在队尾添加元素itemq.size();q.pop();q.top();q.empty();</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="queue-队列"><a href="#queue-队列" class="headerlink" title="queue(队列)"></a>queue(队列)</h2><pre class=" language-c++"><code class="language-c++">queue&lt; type &gt; q;  //创建一个类型为type的队列qq.push(item);   //在队尾添加元素itemq.size();       //队列长度q.pop();        //队首出队q.front();      //获取队首元素q.empty();      //判断队列是否为空，空返回1，不空返回0</code></pre><h2 id="priority-queue-优先队列"><a href="#priority-queue-优先队列" class="headerlink" title="priority_queue(优先队列)"></a>priority_queue(优先队列)</h2><h3 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h3><p> priority_queue自带排序功能（两种）</p><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><pre class=" language-c++"><code class="language-c++">//默认为数值大在队首top（从大到小排）priority_queue&lt;char&gt; q;priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt;q; //等价//以下格式为数值小的在队首，即从小到大排priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt;q;</code></pre><pre class=" language-c++"><code class="language-c++">q.push(item);   //在队尾添加元素itemq.size();       //队列长度q.pop();        //队首出列q.top();        //获取队首元素，与queue的front一样q.empty();      //判断是否为空</code></pre>]]></content>
       
       
       <categories>
@@ -54,12 +52,10 @@
       <link href="2021/02/07/map/"/>
       <url>2021/02/07/map/</url>
       
-        <content type="html"><![CDATA[<h2 id="map（映射）"><a href="#map（映射）" class="headerlink" title="map（映射）"></a>map（映射）</h2><h3 id="建立方法："><a href="#建立方法：" class="headerlink" title="建立方法："></a>建立方法：</h3><pre class=" language-C++"><code class="language-C++">map&lt;key,value&gt; mp;unordered_map&lt;key,value&gt;</code></pre><h3 id="遍历方法："><a href="#遍历方法：" class="headerlink" title="遍历方法："></a>遍历方法：</h3><pre class=" language-c++"><code class="language-c++">for (auto i:mp) {    cout &lt;&lt; i.first &lt;&lt; " " &lt;&lt; i.second &lt;&lt; endl;}</code></pre><h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数:"></a>常用函数:</h3><pre class=" language-C++"><code class="language-C++">mp.size();  //获取元素个数mp.empty();  //判断是否为空mp.clear();  //清空mpmp.begin();  //返回mp中最小key的迭代器，和set一样，只可以用到--和++操作mp.end();   //返回mp最大key的迭代器的后一个迭代器mp.find(key);  //在mp中查找一个key并返回其迭代器，找不到则返回mp.end（）mp.count(key);  //在mp中查找key的数量，因为map中key唯一，所以只返回1或0mp.erase(key); //在mp中删除key所在的项mp[key];  //返回mp中key对应的value，若key不存在，则默认构造key的value类型的值为0mp[key] = value;  //构造值mp.lower_bound(item); //返回map中第一个key大于等于item的迭代器，找不到则返回会mp.end()mp.upper_bound(item); //返回map中第一个key大于item的迭代器，找不到则返回会mp.end()</code></pre><h3 id="unordered的作用："><a href="#unordered的作用：" class="headerlink" title="unordered的作用："></a>unordered的作用：</h3><p>使得set和map内部元素不按排序顺序存储</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="map（映射）"><a href="#map（映射）" class="headerlink" title="map（映射）"></a>map（映射）</h2><h3 id="建立方法："><a href="#建立方法：" class="headerlink" title="建立方法："></a>建立方法：</h3><pre class=" language-C++"><code class="language-C++">map&lt;key,value&gt; mp;unordered_map&lt;key,value&gt;</code></pre><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre class=" language-c++"><code class="language-c++">map&lt;string, int&gt; mp;mp.insert({ "aaa", 1 });mp.insert({ "bbb", 2 });</code></pre><h3 id="遍历方法-迭代器-："><a href="#遍历方法-迭代器-：" class="headerlink" title="遍历方法(迭代器)："></a>遍历方法(迭代器)：</h3><pre class=" language-c++"><code class="language-c++">for (auto i:mp) {    cout &lt;&lt; i.first &lt;&lt; " " &lt;&lt; i.second &lt;&lt; endl;}</code></pre><ul><li>按照key的值由小到大进行输出<pre class=" language-c++"><code class="language-c++">for (map&lt;string, int&gt;::iterator it = mp.begin(); it != mp.end();it++) {  cout &lt;&lt; (*it).first &lt;&lt; " " &lt;&lt; (*it).second &lt;&lt; endl;  //cout &lt;&lt; it-&gt;first &lt;&lt; " " &lt;&lt; it-&gt;second &lt;&lt; endl;//理解为指针}</code></pre><h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数:"></a>常用函数:</h3><pre class=" language-C++"><code class="language-C++">mp.size();  //获取元素个数mp.empty();  //判断是否为空mp.clear();  //清空mpmp.begin();  //返回mp中最小key的迭代器，和set一样，只可以用到--和++操作mp.end();   //返回mp最大key的迭代器的后一个迭代器mp.find(key);  //在mp中查找一个key并返回其迭代器，找不到则返回mp.end（）mp.count(key);  //在mp中查找key的数量，因为map中key唯一，所以只返回1或0mp.erase(key); //在mp中删除key所在的项mp[key];  //返回mp中key对应的value，若key不存在，则默认构造key的value类型的值为0mp[key] = value;  //构造值mp.lower_bound(item); //返回map中第一个key大于等于item的迭代器，找不到则返回会mp.end()mp.upper_bound(item); //返回map中第一个key大于item的迭代器，找不到则返回会mp.end()</code></pre><h3 id="unordered-map中的unordered"><a href="#unordered-map中的unordered" class="headerlink" title="unordered_map中的unordered"></a>unordered_map中的unordered</h3>set和map前都可以加上unordered使得内部的元素不敢排序顺序存储，底层原理实现为hash，可以使所有的查询，修改，删除操作都变成o(1)复杂度</li></ul>]]></content>
       
       
       <categories>
-          
-          <category> 算法 </category>
           
           <category> STL </category>
           

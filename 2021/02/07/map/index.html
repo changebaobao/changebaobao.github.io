@@ -329,15 +329,11 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
-                            </a>
-                        
-                            <a href="/categories/%E7%AE%97%E6%B3%95/STL/" class="post-category">
+                            <a href="/categories/STL/" class="post-category">
                                 STL
                             </a>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/STL/C/" class="post-category">
+                            <a href="/categories/STL/C/" class="post-category">
                                 C++
                             </a>
                         
@@ -384,8 +380,18 @@
                 <h2 id="map（映射）"><a href="#map（映射）" class="headerlink" title="map（映射）"></a>map（映射）</h2><h3 id="建立方法："><a href="#建立方法：" class="headerlink" title="建立方法："></a>建立方法：</h3><pre class=" language-C++"><code class="language-C++">map&lt;key,value&gt; mp;
 unordered_map&lt;key,value&gt;
 </code></pre>
-<h3 id="遍历方法："><a href="#遍历方法：" class="headerlink" title="遍历方法："></a>遍历方法：</h3><pre class=" language-c++"><code class="language-c++">for (auto i:mp) {
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre class=" language-c++"><code class="language-c++">map&lt;string, int&gt; mp;
+mp.insert({ "aaa", 1 });
+mp.insert({ "bbb", 2 });
+</code></pre>
+<h3 id="遍历方法-迭代器-："><a href="#遍历方法-迭代器-：" class="headerlink" title="遍历方法(迭代器)："></a>遍历方法(迭代器)：</h3><pre class=" language-c++"><code class="language-c++">for (auto i:mp) {
     cout &lt;&lt; i.first &lt;&lt; " " &lt;&lt; i.second &lt;&lt; endl;
+}
+</code></pre>
+<ul>
+<li>按照key的值由小到大进行输出<pre class=" language-c++"><code class="language-c++">for (map&lt;string, int&gt;::iterator it = mp.begin(); it != mp.end();it++) {
+  cout &lt;&lt; (*it).first &lt;&lt; " " &lt;&lt; (*it).second &lt;&lt; endl;
+  //cout &lt;&lt; it-&gt;first &lt;&lt; " " &lt;&lt; it-&gt;second &lt;&lt; endl;//理解为指针
 }
 </code></pre>
 <h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数:"></a>常用函数:</h3><pre class=" language-C++"><code class="language-C++">mp.size();  //获取元素个数
@@ -401,7 +407,8 @@ mp[key] = value;  //构造值
 mp.lower_bound(item); //返回map中第一个key大于等于item的迭代器，找不到则返回会mp.end()
 mp.upper_bound(item); //返回map中第一个key大于item的迭代器，找不到则返回会mp.end()
 </code></pre>
-<h3 id="unordered的作用："><a href="#unordered的作用：" class="headerlink" title="unordered的作用："></a>unordered的作用：</h3><p>使得set和map内部元素不按排序顺序存储</p>
+<h3 id="unordered-map中的unordered"><a href="#unordered-map中的unordered" class="headerlink" title="unordered_map中的unordered"></a>unordered_map中的unordered</h3>set和map前都可以加上unordered使得内部的元素不敢排序顺序存储，底层原理实现为hash，可以使所有的查询，修改，删除操作都变成o(1)复杂度</li>
+</ul>
 
                 
             </div>
@@ -706,15 +713,11 @@ mp.upper_bound(item); //返回map中第一个key大于item的迭代器，找不�
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/STL/" class="post-category">
+                            <a href="/categories/STL/" class="post-category">
                                     STL
                                 </a>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/STL/C/" class="post-category">
+                            <a href="/categories/STL/C/" class="post-category">
                                     C++
                                 </a>
                             

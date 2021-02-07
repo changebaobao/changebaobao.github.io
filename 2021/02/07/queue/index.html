@@ -383,23 +383,24 @@
             <div id="articleContent">
                 <h2 id="queue-队列"><a href="#queue-队列" class="headerlink" title="queue(队列)"></a>queue(队列)</h2><pre class=" language-c++"><code class="language-c++">queue&lt; type &gt; q;  //创建一个类型为type的队列q
 q.push(item);   //在队尾添加元素item
-q.size();
-q.pop();
-q.front();
-q.empty();
+q.size();       //队列长度
+q.pop();        //队首出队
+q.front();      //获取队首元素
+q.empty();      //判断队列是否为空，空返回1，不空返回0
 </code></pre>
-<h2 id="priority-queue-优先队列"><a href="#priority-queue-优先队列" class="headerlink" title="priority_queue(优先队列)"></a>priority_queue(优先队列)</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><pre class=" language-c++"><code class="language-c++">//默认为数值大在队首top（从大到小排）
+<h2 id="priority-queue-优先队列"><a href="#priority-queue-优先队列" class="headerlink" title="priority_queue(优先队列)"></a>priority_queue(优先队列)</h2><h3 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h3><p> priority_queue自带排序功能（两种）</p>
+<h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><pre class=" language-c++"><code class="language-c++">//默认为数值大在队首top（从大到小排）
 priority_queue&lt;char&gt; q;
-/*等价于*/
-priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt;q;
+priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt;q; //等价
+
 //以下格式为数值小的在队首，即从小到大排
 priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt;q;
 </code></pre>
 <pre class=" language-c++"><code class="language-c++">q.push(item);   //在队尾添加元素item
-q.size();
-q.pop();
-q.top();
-q.empty();
+q.size();       //队列长度
+q.pop();        //队首出列
+q.top();        //获取队首元素，与queue的front一样
+q.empty();      //判断是否为空
 </code></pre>
 
                 
@@ -656,15 +657,11 @@ q.empty();
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/STL/" class="post-category">
+                            <a href="/categories/STL/" class="post-category">
                                     STL
                                 </a>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/STL/C/" class="post-category">
+                            <a href="/categories/STL/C/" class="post-category">
                                     C++
                                 </a>
                             
@@ -705,15 +702,11 @@ q.empty();
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/STL/" class="post-category">
+                            <a href="/categories/STL/" class="post-category">
                                     STL
                                 </a>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/STL/C/" class="post-category">
+                            <a href="/categories/STL/C/" class="post-category">
                                     C++
                                 </a>
                             
