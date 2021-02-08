@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="iterator（迭代器）, changebaobao">
+    <meta name="keywords" content="string(字符串), changebaobao">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>iterator（迭代器） | changebaobao</title>
+    <title>string(字符串) | changebaobao</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -200,12 +200,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">iterator（迭代器）</h1>
+                    <h1 class="description center-align post-title">string(字符串)</h1>
                 </div>
             </div>
         </div>
@@ -346,7 +346,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-07
+                    2021-02-08
                 </div>
                 
 
@@ -377,14 +377,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="关于迭代器"><a href="#关于迭代器" class="headerlink" title="关于迭代器"></a>关于迭代器</h2><pre class=" language-c++"><code class="language-c++">vector&lt;int&gt;::iterator it=v.begin();
-auto it=v.begin();   //两者是等价的
+                <h2 id="string的常用方法"><a href="#string的常用方法" class="headerlink" title="string的常用方法"></a>string的常用方法</h2><ul>
+<li>string支持赋值，比较，连接(+,+=)<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><pre class=" language-C++"><code class="language-C++">s.length();     //字符串长度
+s.empty();      //判断是否为空，空返回1，不空返回0
+s.erase(s.begin()+i); //删除下标为i的字符
+s.substr(x, n); //返回从s的下标x开始的n个字符组成的字符串，如果n省略就取到底
+s.erase(x,n);   //删除从x开始的n个字符，n省略则删到底
+s.insert(p,s1,pos,len); //字符串中插入字符串，后两个参数截取s1，可省略,p为下标
+s.insert(p,n,c);    //在p处插入n个字符c
+s.replace(p0,len0,s1,len); //删除+字符串插入，后两个参数可省略
+s.find(item);   //查找（元素或者字符串），返回第一次出现的下标，可以指定位置
+s.find(item,pos);   //可以从指定位置开始查找
+s.refind();     //与find相似，从后往前查找，也可以指定位置
 </code></pre>
-<ul>
-<li>在这里it类似于一个指针，指向v的第一个元素；</li>
-<li>it等价于&amp;v[0],*it等价于v[0];</li>
-<li>it也可以进行加减操作，eg：it+3指向第四个元素；</li>
-<li>it++后，it指向的就是v的第二个元素(v[1])了；</li>
+</li>
 </ul>
 
                 
@@ -412,7 +418,7 @@ auto it=v.begin();   //两者是等价的
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://changebaobao.github.io/2021/02/07/iterator/">http://changebaobao.github.io/2021/02/07/iterator/</a>
+                    <a href="http://changebaobao.github.io/2021/02/08/string/">http://changebaobao.github.io/2021/02/08/string/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -618,13 +624,13 @@ auto it=v.begin();   //两者是等价的
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/02/08/string/">
+                <a href="/2021/02/08/vector/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="string(字符串)">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="vector(动态数组)">
                         
-                        <span class="card-title">string(字符串)</span>
+                        <span class="card-title">vector(动态数组)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -663,13 +669,13 @@ auto it=v.begin();   //两者是等价的
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/07/queue/">
+                <a href="/2021/02/07/iterator/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="queue（队列）">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="iterator（迭代器）">
                         
-                        <span class="card-title">queue（队列）</span>
+                        <span class="card-title">iterator（迭代器）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

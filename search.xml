@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title>vector(动态数组)</title>
+      <link href="2021/02/08/vector/"/>
+      <url>2021/02/08/vector/</url>
+      
+        <content type="html"><![CDATA[<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><pre class=" language-c++"><code class="language-c++">vector&lt;type&gt; v; //后面可以加{},()进行初始化vector&lt;double&gt; v2{1, 2, 3, 6, 5};vector&lt;long long&gt; v3(20);        //长度为20vector&lt;string&gt; v4(20, "abcde");  //长度为20</code></pre><h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><pre class=" language-c++"><code class="language-c++">v.push_back(item);  //v后面添加元素itemv.pop_back();       //删除v的最后一个元素v.size();           //返回元素个数v.resize(n);        //把v的长度设为nv.empty();          //判断是否为空，空返回1，不空返回0v.clear();          //清空v中的元素v.front();          //返回首元素的引用v.back();           //返回尾元素的引用v.begin();          //返回首迭代器，指向第一个元素v.end();            //返回尾迭代器，指向最后一个元素的下一个位置      </code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>string(字符串)</title>
+      <link href="2021/02/08/string/"/>
+      <url>2021/02/08/string/</url>
+      
+        <content type="html"><![CDATA[<h2 id="string的常用方法"><a href="#string的常用方法" class="headerlink" title="string的常用方法"></a>string的常用方法</h2><ul><li>string支持赋值，比较，连接(+,+=)<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><pre class=" language-C++"><code class="language-C++">s.length();     //字符串长度s.empty();      //判断是否为空，空返回1，不空返回0s.erase(s.begin()+i); //删除下标为i的字符s.substr(x, n); //返回从s的下标x开始的n个字符组成的字符串，如果n省略就取到底s.erase(x,n);   //删除从x开始的n个字符，n省略则删到底s.insert(p,s1,pos,len); //字符串中插入字符串，后两个参数截取s1，可省略,p为下标s.insert(p,n,c);    //在p处插入n个字符cs.replace(p0,len0,s1,len); //删除+字符串插入，后两个参数可省略s.find(item);   //查找（元素或者字符串），返回第一次出现的下标，可以指定位置s.find(item,pos);   //可以从指定位置开始查找s.refind();     //与find相似，从后往前查找，也可以指定位置</code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>iterator（迭代器）</title>
       <link href="2021/02/07/iterator/"/>
       <url>2021/02/07/iterator/</url>
@@ -13,9 +55,9 @@
       
       <categories>
           
-          <category> STL </category>
-          
           <category> C++ </category>
+          
+          <category> STL </category>
           
       </categories>
       
@@ -38,8 +80,6 @@
           
           <category> STL </category>
           
-          <category> 算法 </category>
-          
       </categories>
       
       
@@ -57,9 +97,9 @@
       
       <categories>
           
-          <category> STL </category>
-          
           <category> C++ </category>
+          
+          <category> STL </category>
           
       </categories>
       
