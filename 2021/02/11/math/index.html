@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vector(动态数组), changebaobao">
+    <meta name="keywords" content="数论入门, changebaobao">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vector(动态数组) | changebaobao</title>
+    <title>数论入门 | changebaobao</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -200,12 +200,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vector(动态数组)</h1>
+                    <h1 class="description center-align post-title">数论入门</h1>
                 </div>
             </div>
         </div>
@@ -329,12 +329,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C/" class="post-category">
-                                C++
+                            <a href="/categories/%E6%95%B0%E8%AE%BA/" class="post-category">
+                                数论
                             </a>
                         
-                            <a href="/categories/C/STL/" class="post-category">
-                                STL
+                            <a href="/categories/%E6%95%B0%E8%AE%BA/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -346,14 +346,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-08
+                    2021-02-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-08
+                    2021-02-11
                 </div>
                 
 
@@ -377,22 +377,43 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><pre class=" language-c++"><code class="language-c++">vector&lt;type&gt; v; //后面可以加{},()进行初始化
-
-vector&lt;double&gt; v2{1, 2, 3, 6, 5};
-vector&lt;long long&gt; v3(20);        //长度为20
-vector&lt;string&gt; v4(20, "abcde");  //长度为20
+                <h2 id="最大公约数–欧几里得算法"><a href="#最大公约数–欧几里得算法" class="headerlink" title="最大公约数–欧几里得算法"></a>最大公约数–欧几里得算法</h2><pre class=" language-C++"><code class="language-C++">int gcd(int a, int b)
+{
+    return b == 0 ? a : gcd(b, a % b);
+}
 </code></pre>
-<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><pre class=" language-c++"><code class="language-c++">v.push_back(item);  //v后面添加元素item
-v.pop_back();       //删除v的最后一个元素
-v.size();           //返回元素个数
-v.resize(n);        //把v的长度设为n
-v.empty();          //判断是否为空，空返回1，不空返回0
-v.clear();          //清空v中的元素
-v.front();          //返回首元素的引用
-v.back();           //返回尾元素的引用
-v.begin();          //返回首迭代器，指向第一个元素
-v.end();            //返回尾迭代器，指向最后一个元素的下一个位置      
+<h2 id="最小公倍数"><a href="#最小公倍数" class="headerlink" title="最小公倍数"></a>最小公倍数</h2><ul>
+<li>gcd(a,b) * lcm(a,b) = a * b;<pre class=" language-C++"><code class="language-C++">int lcm(int a, int b)
+{
+  return a * b / gcd(a, b);
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h2><pre class=" language-c++"><code class="language-c++">long long quick_pow(long long a, long long b)
+{
+    long long ret = 1;
+    while (b) {
+        if (b & 1) {
+            ret *= a;
+        }
+        a *= a;
+        b &gt;&gt;= 1;
+    }
+    return ret;
+}
+</code></pre>
+<h3 id="快速幂取模-计算a-b-mod-m"><a href="#快速幂取模-计算a-b-mod-m" class="headerlink" title="快速幂取模:计算a^b mod m"></a>快速幂取模:计算a^b mod m</h3><pre class=" language-c++"><code class="language-c++">long long quick_pow_mod(long long a, long long b, long long m)
+{
+    long long res = 1;
+    while (b &gt; 0) {
+        if (b & 1)
+            res = res * a % m;
+        a = a * a % m;
+        b &gt;&gt;= 1;
+    }
+    return res;
+}
 </code></pre>
 
                 
@@ -420,7 +441,7 @@ v.end();            //返回尾迭代器，指向最后一个元素的下一个�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://changebaobao.github.io/2021/02/08/vector/">http://changebaobao.github.io/2021/02/08/vector/</a>
+                    <a href="http://changebaobao.github.io/2021/02/11/math/">http://changebaobao.github.io/2021/02/11/math/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -622,9 +643,10 @@ v.end();            //返回尾迭代器，指向最后一个元素的下一个�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/02/11/math/">
                     <div class="card-image">
@@ -642,9 +664,9 @@ v.end();            //返回尾迭代器，指向最后一个元素的下一个�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -661,6 +683,7 @@ v.end();            //返回尾迭代器，指向最后一个元素的下一个�
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -671,13 +694,13 @@ v.end();            //返回尾迭代器，指向最后一个元素的下一个�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/08/string/">
+                <a href="/2021/02/08/vector/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="string(字符串)">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="vector(动态数组)">
                         
-                        <span class="card-title">string(字符串)</span>
+                        <span class="card-title">vector(动态数组)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

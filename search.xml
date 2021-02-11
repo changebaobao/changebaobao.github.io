@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>数论入门</title>
+      <link href="2021/02/11/math/"/>
+      <url>2021/02/11/math/</url>
+      
+        <content type="html"><![CDATA[<h2 id="最大公约数–欧几里得算法"><a href="#最大公约数–欧几里得算法" class="headerlink" title="最大公约数–欧几里得算法"></a>最大公约数–欧几里得算法</h2><pre class=" language-C++"><code class="language-C++">int gcd(int a, int b){    return b == 0 ? a : gcd(b, a % b);}</code></pre><h2 id="最小公倍数"><a href="#最小公倍数" class="headerlink" title="最小公倍数"></a>最小公倍数</h2><ul><li>gcd(a,b) * lcm(a,b) = a * b;<pre class=" language-C++"><code class="language-C++">int lcm(int a, int b){  return a * b / gcd(a, b);}</code></pre></li></ul><h2 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h2><pre class=" language-c++"><code class="language-c++">long long quick_pow(long long a, long long b){    long long ret = 1;    while (b) {        if (b & 1) {            ret *= a;        }        a *= a;        b &gt;&gt;= 1;    }    return ret;}</code></pre><h3 id="快速幂取模-计算a-b-mod-m"><a href="#快速幂取模-计算a-b-mod-m" class="headerlink" title="快速幂取模:计算a^b mod m"></a>快速幂取模:计算a^b mod m</h3><pre class=" language-c++"><code class="language-c++">long long quick_pow_mod(long long a, long long b, long long m){    long long res = 1;    while (b &gt; 0) {        if (b & 1)            res = res * a % m;        a = a * a % m;        b &gt;&gt;= 1;    }    return res;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数论 </category>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vector(动态数组)</title>
       <link href="2021/02/08/vector/"/>
       <url>2021/02/08/vector/</url>
