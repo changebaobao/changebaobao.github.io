@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: STL, baobao&#39;s blog">
+    <meta name="keywords" content="分类: 算法, baobao&#39;s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类: STL | baobao&#39;s blog</title>
+    <title>分类: 算法 | baobao&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -207,7 +207,7 @@
                 
                 <a href="/categories/%E6%95%B0%E8%AE%BA/%E7%AE%97%E6%B3%95/" title="算法: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
+                             chip-active "
                             style="background-color: #D5F5E3;">算法
                         <span class="tag-length">1</span>
                     </span>
@@ -216,7 +216,7 @@
                 
                 <a href="/categories/C/STL/" title="STL: 5">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
+                             chip-default "
                             style="background-color: #E8F8F5;">STL
                         <span class="tag-length">5</span>
                     </span>
@@ -225,7 +225,7 @@
                 
                 <a href="/categories/C/%E7%AE%97%E6%B3%95/" title="算法: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
+                             chip-active "
                             style="background-color: #FEF9E7;">算法
                         <span class="tag-length">1</span>
                     </span>
@@ -245,27 +245,31 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/02/08/vector/">
+                    <a href="/2021/03/03/bing-cha-ji/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="vector(动态数组)">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="bing cha ji">
                             
-                            <span class="card-title">vector(动态数组)</span>
+                            <span class="card-title">bing cha ji</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                创建vector&lt;type&gt; v; //后面可以加{},()进行初始化
-
-vector&lt;double&gt; v2{1, 2, 3, 6, 5};
-vector&lt;long long&gt; v3(20);      
+                                并查集基础核心代码int find(int x)
+{
+    return x == p[x] ? x : find(p[x]);
+}
+void Union(int a, int b)
+{
+    int t1 = find(a);
+   
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-03
                             </span>
                             <span class="publish-author">
                                 
@@ -275,191 +279,8 @@ vector&lt;long long&gt; v3(20);
                                     C++
                                 </a>
                                 
-                                <a href="/categories/C/STL/" class="post-category">
-                                    STL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/02/08/string/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="string(字符串)">
-                            
-                            <span class="card-title">string(字符串)</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                string的常用方法
-string支持赋值，比较，连接(+,+=)常用函数s.length();     //字符串长度
-s.empty();      //判断是否为空，空返回1，不空返回0
-s.erase(s.begin()+i); 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C/" class="post-category">
-                                    C++
-                                </a>
-                                
-                                <a href="/categories/C/STL/" class="post-category">
-                                    STL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/02/07/iterator/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="iterator（迭代器）">
-                            
-                            <span class="card-title">iterator（迭代器）</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                关于迭代器vector&lt;int&gt;::iterator it=v.begin();
-auto it=v.begin();   //两者是等价的
-
-
-在这里it类似于一个指针，指向v的第一个元素；
-it等价于&amp;v[0],*i
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C/" class="post-category">
-                                    C++
-                                </a>
-                                
-                                <a href="/categories/C/STL/" class="post-category">
-                                    STL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/02/07/queue/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="queue（队列）">
-                            
-                            <span class="card-title">queue（队列）</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                queue(队列)queue&lt; type &gt; q;  //创建一个类型为type的队列q
-q.push(item);   //在队尾添加元素item
-q.size();       //队列长度
-q.pop();        
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C/" class="post-category">
-                                    C++
-                                </a>
-                                
-                                <a href="/categories/C/STL/" class="post-category">
-                                    STL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/02/07/map/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="map（映射）">
-                            
-                            <span class="card-title">map（映射）</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                map（映射）建立方法：map&lt;key,value&gt; mp;
-unordered_map&lt;key,value&gt;
-
-初始化map&lt;string, int&gt; mp;
-mp.insert({ "aaa", 1 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/C/" class="post-category">
-                                    C++
-                                </a>
-                                
-                                <a href="/categories/C/STL/" class="post-category">
-                                    STL
+                                <a href="/categories/C/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                                 
                                 
