@@ -349,21 +349,21 @@ int main()
 using namespace std;
 const int maxn = 1e4 + 5;
 const int maxW = 1e7 + 5;
-int n, W, w[maxn], v[maxn];
+int n, m, w[maxn], v[maxn];
 long long f[maxW];
 int main()
 {
-  cin &gt;&gt; W &gt;&gt; n;
-  for (int i = 1; i &lt;= n; i++) {
-      cin &gt;&gt; w[i] &gt;&gt; v[i];
-  }
-  for (int i = 1; i &lt;= n; i++) {
-      for (int l = w[i]; l &lt;= W; l++) {
-          f[l] = max(f[l], f[l - w[i]] + v[i]);
-      }
-  }
-  cout &lt;&lt; f[W];
-  return 0;
+cin &gt;&gt; m &gt;&gt; n;
+for (int i = 1; i &lt;= n; i++) {
+    cin &gt;&gt; w[i] &gt;&gt; v[i];
+}
+for (int i = 1; i &lt;= n; i++) {
+    for (int l = w[i]; l &lt;= m; l++) {
+        f[l] = max(f[l], f[l - w[i]] + v[i]);
+    }
+}
+cout &lt;&lt; f[m];
+return 0;
 }
 </code></pre>
 </li>
@@ -919,8 +919,6 @@ $(function () {
         zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
     
 
-    
-    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
