@@ -290,7 +290,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-03
+                    2021-03-07
                 </div>
                 
 
@@ -323,7 +323,7 @@ void Union(int a, int b)
     int t1 = find(a);
     int t2 = find(b);
     if (t1!=t2) {
-        p[t1] = p[t2];
+        p[t1] = t2;
     }
 }
 </code></pre>
@@ -347,7 +347,7 @@ void Union(int a, int b)
     int t1 = find(a);
     int t2 = find(b);
     if (t1!=t2) {
-        p[t1] = p[t2];
+        p[t1] = t2;
     }
 }
 int main()
