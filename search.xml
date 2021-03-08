@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>二分</title>
+      <link href="2021/03/08/binary-search/"/>
+      <url>2021/03/08/binary-search/</url>
+      
+        <content type="html"><![CDATA[<h2 id="整数二分模板"><a href="#整数二分模板" class="headerlink" title="整数二分模板"></a>整数二分模板</h2><pre class=" language-c++"><code class="language-c++">bool check(int x) {/* ... */} // 检查x是否满足某种性质// 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用：int bsearch(int l, int r){    while (l &lt; r)    {        int mid = l + r &gt;&gt; 1;        if (check(mid)) r = mid;    // check()判断mid是否满足性质        else l = mid + 1;    }    return l;}// 区间[l, r]被划分成[l, mid - 1]和[mid, r]时使用：int bsearch(int l, int r){    while (l &lt; r)    {        int mid = l + r + 1 &gt;&gt; 1;        if (check(mid)) l = mid;        else r = mid - 1;    }    return l;}</code></pre><h2 id="浮点数二分模板"><a href="#浮点数二分模板" class="headerlink" title="浮点数二分模板"></a>浮点数二分模板</h2><pre class=" language-c++"><code class="language-c++">bool check(double x) {/* ... */} // 检查x是否满足某种性质double bsearch(double l, double r){    const double eps = 1e-6;   // eps 表示精度，取决于题目对精度的要求    while (r - l &gt; eps)    {        double mid = (l + r) / 2;        if (check(mid)) r = mid;        else l = mid;    }    return l;}</code></pre><h2 id="二分题（入门）"><a href="#二分题（入门）" class="headerlink" title="二分题（入门）"></a>二分题（入门）</h2><h3 id="整数二分例题（待补充）"><a href="#整数二分例题（待补充）" class="headerlink" title="整数二分例题（待补充）"></a>整数二分例题（待补充）</h3><p><a href="https://www.luogu.com.cn/problem/P1873">https://www.luogu.com.cn/problem/P1873</a></p><pre class=" language-c++"><code class="language-c++">#include &lt;iostream&gt;using namespace std;int a[1000005];int n, m;bool check(int k){ // 检查可行性，k为锯片高度    long long sum = 0;    for (int i = 1; i &lt;= n; i++) // 检查每一棵树        if (a[i] &gt; k) // 如果树高于锯片高度            sum += (long long)(a[i] - k); // 累加树木长度    return sum &gt;= m; // 如果满足最少长度代表可行}int find(){    int l = 1, r = 1000000001; // 因为是左闭右开的，所以10亿要加1    while (l + 1 &lt; r) { // 如果两点不相邻        int mid = (l + r) / 2; // 取中间值        if (check(mid)) // 如果可行            l = mid; // 升高锯片高度        else            r = mid; // 否则降低锯片高度    }    return l; // 返回左边值}int main(){    cin &gt;&gt; n &gt;&gt; m;    for (int i = 1; i &lt;= n; i++)        cin &gt;&gt; a[i];    cout &lt;&lt; find();    return 0;}</code></pre><h3 id="浮点数二分例题（待补充）"><a href="#浮点数二分例题（待补充）" class="headerlink" title="浮点数二分例题（待补充）"></a>浮点数二分例题（待补充）</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2899">http://acm.hdu.edu.cn/showproblem.php?pid=2899</a></p><pre class=" language-c++"><code class="language-c++">#include &lt;iostream&gt;using namespace std;#define e 1e-7double fac(double a, double b){    return 6 * a * a * a * a * a * a * a + 8 * a * a * a * a * a * a + 7 * a * a * a + 5 * a * a - b * a;}double fac0(double a, double b){    return 42 * a * a * a * a * a * a + 48 * a * a * a * a * a + 21 * a * a + 10 * a - b;}int main(){    int t;    double n;    cin &gt;&gt; t;    while (t--) {        cin&gt;&gt;n;        double l = 0;        double r = 100;        while (r - l &gt; e) {            double mid = (l + r) / 2;            if (fac0(mid, n) &gt; 0)                r = mid;            else                l = mid;        }        printf("%.4lf\n", fac(r, n));    }    return 0;}</code></pre><h2 id="三分模板（待补充）"><a href="#三分模板（待补充）" class="headerlink" title="三分模板（待补充）"></a>三分模板（待补充）</h2><pre class=" language-c++"><code class="language-c++">lmid = left + (right - left &gt;&gt; 1);rmid = lmid + (right - lmid &gt;&gt; 1);  // 对右侧区间取半if (cal(lmid) &gt; cal(rmid))  right = rmid;else  left = lmid;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二分 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>哈夫曼编码长度简便求法</title>
       <link href="2021/03/07/hafumanbianmachengdu/"/>
       <url>2021/03/07/hafumanbianmachengdu/</url>
