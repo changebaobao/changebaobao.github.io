@@ -11,6 +11,12 @@
         <content type="html"><![CDATA[<h2 id="哈夫曼编码长度求法（使用Stl等）"><a href="#哈夫曼编码长度求法（使用Stl等）" class="headerlink" title="哈夫曼编码长度求法（使用Stl等）"></a>哈夫曼编码长度求法（使用Stl等）</h2><ul><li><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1053">http://acm.hdu.edu.cn/showproblem.php?pid=1053</a></li></ul><pre class=" language-c++"><code class="language-c++">#include &lt;bits/stdc++.h&gt; using namespace std;/*1.获取字符串2.map记录字符与其对应的出现的次数3.按照从小到大的顺序入列priority_queue（优先队列）4.每次出队两个，相加后再次入队，并进行排序5.用ans记录每一次相加和temp值之和，当队列中剩下一个元素时，ans的值即为所求*/string s;int main(){    int ans = 0;    map&lt;char, int&gt; mp;    priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; q; //升序排列    getline(cin, s);    if (s == "END") {        break;    }    int len = s.length();    for (int i = 0; i &lt; len; i++) { //记录字符与其对应的出现的次数        if (mp.find(s[i]) == mp.end()) {            mp[s[i]] = 1;        } else {            mp[s[i]]++;        }    }    for (map&lt;char, int&gt;::iterator it = mp.begin(); it != mp.end(); it++) {        q.push(it-&gt;second); //字符出现的次数入队    }    while (q.size() != 1) {        int a, b, temp; //a，b记录最小的两个次数        a = q.top();        q.pop();        b = q.top();        q.pop();        temp = a + b; //队列中最小的两个次数相加        ans += temp;        q.push(temp); //最小的两个次数相加再次入队，优先队列自行排序    }    cout &lt;&lt; ans &lt;&lt; endl;    return 0;}</code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> 树 </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -37,6 +43,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 背包 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -58,6 +70,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 并查集 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -76,6 +94,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -98,6 +122,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> vector </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -118,6 +148,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> string </tag>
+            
+        </tags>
       
     </entry>
     
@@ -140,6 +176,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> iterator </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -161,6 +203,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> queue </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -181,6 +229,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> map </tag>
+            
+        </tags>
       
     </entry>
     
