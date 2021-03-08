@@ -218,12 +218,7 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    哈夫曼编码长度求法（使用Stl等）
-http://acm.hdu.edu.cn/showproblem.php?pid=1053
-
-#include &lt;bits/stdc++.h&gt; 
-using namespace std;
-/
+                                    哈夫曼树
                                 
                             </div>
                             <div class="publish-info">
@@ -278,9 +273,7 @@ using namespace std;
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    01背包模板for (int i = 1; i &lt;= n; i++) {
-     for (int j = m; j &gt;= w[i]; j--) {
-         f[j] = max(f[j - w[i]] + v[i]
+                                    基础的动态规划问题
                                 
                             </div>
                             <div class="publish-info">
@@ -333,14 +326,7 @@ using namespace std;
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    并查集基础核心代码int find(int x)
-{
-    return x == p[x] ? x : find(p[x]);
-}
-void Union(int a, int b)
-{
-    int t1 = find(a);
-   
+                                    并查集基本用法
                                 
                             </div>
                             <div class="publish-info">
@@ -402,13 +388,7 @@ void Union(int a, int b)
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    最大公约数–欧几里得算法int gcd(int a, int b)
-{
-    return b == 0 ? a : gcd(b, a % b);
-}
-
-最小公倍数
-gcd(a,b) * lcm(a,b) = a * b;int lcm(
+                                    基本数论（公倍数，公约数，快速幂等）
                                 
                             </div>
                             <div class="publish-info">
@@ -461,10 +441,7 @@ gcd(a,b) * lcm(a,b) = a * b;int lcm(
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    创建vector&lt;type&gt; v; //后面可以加{},()进行初始化
-
-vector&lt;double&gt; v2{1, 2, 3, 6, 5};
-vector&lt;long long&gt; v3(20);      
+                                    c++stl库中vector的基本用法
                                 
                             </div>
                             <div class="publish-info">
@@ -521,10 +498,7 @@ vector&lt;long long&gt; v3(20);
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    string的常用方法
-string支持赋值，比较，连接(+,+=)常用函数s.length();     //字符串长度
-s.empty();      //判断是否为空，空返回1，不空返回0
-s.erase(s.begin()+i); 
+                                    c++中string的基本用法
                                 
                             </div>
                             <div class="publish-info">
@@ -581,12 +555,7 @@ s.erase(s.begin()+i);
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    关于迭代器vector&lt;int&gt;::iterator it=v.begin();
-auto it=v.begin();   //两者是等价的
-
-
-在这里it类似于一个指针，指向v的第一个元素；
-it等价于&amp;v[0],*i
+                                    c++中iterator的基本用法
                                 
                             </div>
                             <div class="publish-info">
@@ -643,10 +612,7 @@ it等价于&amp;v[0],*i
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    queue(队列)queue&lt; type &gt; q;  //创建一个类型为type的队列q
-q.push(item);   //在队尾添加元素item
-q.size();       //队列长度
-q.pop();        
+                                    c++的stl库中queue的基本用法
                                 
                             </div>
                             <div class="publish-info">
@@ -703,11 +669,7 @@ q.pop();
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    map（映射）建立方法：map&lt;key,value&gt; mp;
-unordered_map&lt;key,value&gt;
-
-初始化map&lt;string, int&gt; mp;
-mp.insert({ "aaa", 1 
+                                    c++中map的基本用法
                                 
                             </div>
                             <div class="publish-info">
