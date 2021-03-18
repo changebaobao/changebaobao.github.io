@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>bfs</title>
+      <link href="2021/03/18/bfs/"/>
+      <url>2021/03/18/bfs/</url>
+      
+        <content type="html"><![CDATA[<ul><li><a href="http://poj.org/problem?id=3278">http://poj.org/problem?id=3278</a><pre class=" language-c++"><code class="language-c++">#include &lt;bits/stdc++.h&gt;using namespace std;const int maxn = 100001;int step[maxn]; int vis[maxn];int n, k;queue&lt;int&gt; Q;int bfs(int n, int k){  int p, q;  step[n] = 0;  vis[n] = 1;  Q.push(n);  while (!Q.empty()) {      p = Q.front();      Q.pop();      for (int i = 0; i &lt; 3; i++) {          if (i == 0)              q = p - 1;          else if (i == 1)              q = p + 1;          else              q = p * 2;          if (q &lt; 0 || q &gt;= maxn)              continue;          if (!vis[q]) {              Q.push(q);              vis[q] = 1;              step[q] = step[p] + 1;          }          if (q == k)              return step[q];      }  }}int main(){  while (cin &gt;&gt; n &gt;&gt; k) {      memset(vis, 0, sizeof(vis));      memset(step, 0, sizeof(step));      while (!Q.empty())          Q.pop();      if (n &gt;= k)           printf("%d\n", n - k);      else          printf("%d\n", bfs(n, k));  }  return 0;}</code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 广度优先搜索 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> bfs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二分</title>
       <link href="2021/03/08/binary-search/"/>
       <url>2021/03/08/binary-search/</url>
