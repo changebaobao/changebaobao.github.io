@@ -54,6 +54,230 @@
                 
     
         <article class="box post post-item">
+            <div class="post-title"><a href="/2021/03/21/the-short-path/">最短路径</a></div>
+            <div class="post-meta">
+                
+                <i class="fa fa-calendar"></i> <time>2021-03-21</time>
+                <span class="dotted">|</span>
+                <i class="fa fa-user"></i> 
+            </div>
+
+            <div class="post-excerpt">
+                <a href="/2021/03/21/the-short-path/">
+                    <p>
+                        
+                            Floyd，Dijkstra, Kruskal, PrimFloyd#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int main()
+{
+    int dis[100][100], n, m, t1, t2, t3;
+    int inf = 999999;
+    cin &gt;&gt; n &gt;&gt; m;
+    for (int i = 1; i &lt;= n; i++) {
+        for (int j = 0; j &lt;= n; j++) {
+            if (i == j) {
+                dis[i][j] = 0;
+            } else {
+                dis[i][j] = inf;
+            }
+        }
+    }
+    for (int i = 1; i &lt;= m; i++) {
+        cin &gt;&gt; t1 &gt;&gt; t2 &gt;&gt; t3;
+            dis[t2][t1] = t3;
+            dis[t1][t2] = t3;
+
+    }
+    // 核心代码
+    for (int k = 1; k &lt;= n; k++)
+    {
+        for (int i = 1; i &lt;= n; i++) {
+            for (int j = 1; j &lt;= n; j++) {
+                dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]);
+            }
+        }
+    }
+    cout &lt;&lt; dis[1][n] &lt;&lt; endl;
+    return 0;
+}
+
+Dijkstra#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int main()
+{
+    int e[10][10], dis[10], book[10], n, m, t1, t2, t3, u, min;
+    int inf = 999999;
+    //初始化
+    cin &gt;&gt; n &gt;&gt; m;
+    for (int i = 1; i &lt;= n; i++) {
+        for (int j = 0; j &lt;= n; j++) {
+            if (i == j) {
+                e[i][j] = 0;
+            } else {
+                e[i][j] = inf;
+            }
+        }
+    }
+
+    for (int i = 1; i &lt;= m; i++) {
+        cin &gt;&gt; t1 &gt;&gt; t2 &gt;&gt; t3;
+        e[t1][t2] = t3;
+    }
+
+    for (int i = 1; i &lt;= n; i++) {
+        dis[i] = e[1][i];
+    }
+
+    for (int i = 1; i &lt;= n; i++) {
+        book[i] = 0;
+    }
+    //核心语句
+    book[1] = 1;
+    for (int i = 1; i &lt;= n - 1; i++) {
+        min = inf;
+        for (int j = 0; j &lt;= n; j++) {
+            if (book[j] == 0 && dis[j] &lt; min) {
+                min = dis[j];
+                u = j;
+            }
+        }
+        book[u] = 1;
+        for (int v = 1; v &lt;= n; v++) {
+            if (e[u][v] &lt; inf) {
+                dis[v] = min(dis[v], dis[u] + e[u][v]);
+            }
+        }
+    }
+    for (int i = 1; i &lt;= n; i++) {
+        cout &lt;&lt; dis[i] &lt;&lt; " ";
+    }
+    return 0;
+}
+
+Kruskalstruct node { //存储边及边权
+    int u, v, dis;
+} e[M];
+bool cmp(node x, node y)
+{ //sort的比较函数
+    return x.dis &lt; y.dis;
+}
+int father[N]; //存放每个节点的父亲节点的father数组
+int findfather(int v)
+{ //查找节点的父亲节点
+    if (father[v] == v)
+        return v;
+    else {
+        int F = findfather(father[v]);
+        father[v] = F;
+        return F;
+    }
+}
+int Kruskal(int n, int m)
+{
+    int ans = 0, num_edge = 0;
+    //ans为所求最小生成树的边权之和，num_edge为当前生成树的边数
+    for (int i = 0; i &lt; n; i++) { //father[]初始化，注意节点的范围（以0 - n为例）
+        father[i] = i;
+    }
+    sort(e, e + m, cmp); //对边的权值按照从小到大排序
+    for (int i = 0; i &lt; m; i++) {
+        int fu = findfather(e[i].u);
+        int fv = findfather(e[i].v);
+        if (fu != fv) { //如果两个节点的父亲节点不同，则将次边加入最小生成树
+            ans += e[i].dis; //加上边权
+            father[fu] = fv;
+            num_edge++;
+            if (num_edge == n - 1) //如果最小生成树的边数目达到节点数减一，就退出
+                break;
+        }
+    }
+    return ans;
+}
+
+Prim#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int inf = 0x3f3f3f3f;
+const int maxx = 1100;
+int e[maxx][maxx], dis[maxx];
+bool book[maxx];
+int n, m;
+void init()
+{
+    for (int i = 0; i &lt; n; i++)
+        for (int j = 0; j &lt; n; j++)
+            if (i == j)
+                e[i][j] = 0;
+            else
+                e[i][j] = inf;
+}
+int prim(int e[][maxx], int n)
+{
+    int ans = 0;
+    memset(book, false, sizeof(book));
+    book[0] = true;
+    for (int i = 1; i &lt; n; i++)
+        dis[i] = e[0][i];
+    for (int i = 1; i &lt; n; i++) {
+        int minn = inf, u = -1;
+        for (int j = 0; j &lt; n; j++) {
+            if (!book[j] && dis[j] &lt; minn) {
+                minn = dis[j];
+                u = j;
+            }
+        }
+        if (ans == inf)
+            return -1;
+        ans += minn;
+        book[u] = true;
+        for (int v = 0; v &lt; n; v++)
+            if (!book[v])
+                dis[v] = min(dis[v], e[u][v]);
+    }
+    return ans;
+}
+int main()
+{
+    while (cin &gt;&gt; m &gt;&gt; n) {
+        init();
+        for (int i = 0; i &lt; n; i++) {
+            int a, b, c;
+            cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+            if (e[a - 1][b - 1] &gt; c)
+                e[a - 1][b - 1] = e[b - 1][a - 1] = c;
+        }
+        cout &lt;&lt; prim(e, m) &lt;&lt; endl;
+    }
+    return 0;
+}
+
+
+                        
+                    </p>
+                </a>
+            </div>
+
+            
+                <div class="post-footer">
+                    
+                        <i class="fa fa-folder-open-o"></i>
+                        <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+
+                        
+                            <span class="dotted">|</span>
+                        
+
+                    
+                    
+                        <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/%E5%9B%BE/" rel="tag">图</a>
+                    
+                </div>
+            
+        </article>
+    
+
+    
+        <article class="box post post-item">
             <div class="post-title"><a href="/2021/03/20/Catallan/">卡特兰数</a></div>
             <div class="post-meta">
                 
@@ -484,47 +708,11 @@
         </article>
     
 
-    
-        <article class="box post post-item">
-            <div class="post-title"><a href="/2021/02/07/map/">map（映射）</a></div>
-            <div class="post-meta">
-                
-                <i class="fa fa-calendar"></i> <time>2021-02-07</time>
-                <span class="dotted">|</span>
-                <i class="fa fa-user"></i> 
-            </div>
-
-            <div class="post-excerpt">
-                <a href="/2021/02/07/map/">
-                    <p>
-                        
-                            c++中map的基本用法
-                        
-                    </p>
-                </a>
-            </div>
-
-            
-                <div class="post-footer">
-                    
-                        <i class="fa fa-folder-open-o"></i>
-                        <a class="category-link" href="/categories/C/">C++</a>, <a class="category-link" href="/categories/C/STL/">STL</a>
-
-                        
-                            <span class="dotted">|</span>
-                        
-
-                    
-                    
-                        <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/map/" rel="tag">map</a>
-                    
-                </div>
-            
-        </article>
-    
 
 
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/archives/2021/page/2/">2</a><a class="extend next" rel="next" href="/archives/2021/page/2/">下一页</a>
+    </nav>
 
             </div>
             <div class="aside">
@@ -533,6 +721,10 @@
 <div class="box widget">
     <div class="title">最新</div>
     <ul class="item-box">
+        
+            
+                <li><a href="/2021/03/21/the-short-path/">最短路径</a></li>
+            
         
             
                 <li><a href="/2021/03/20/Catallan/">卡特兰数</a></li>
@@ -562,10 +754,6 @@
                 <li><a href="/2021/02/11/math/">数论入门</a></li>
             
         
-            
-                <li><a href="/2021/02/08/vector/">vector(动态数组)</a></li>
-            
-        
     </ul>
 </div>
 
@@ -573,14 +761,14 @@
         
     <div class="box widget">
         <div class="title">分类</div>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/C/STL/">STL</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">广度优先搜索</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E8%AE%BA/">数论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A0%91/">树</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li></ul>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/C/STL/">STL</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">广度优先搜索</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E8%AE%BA/">数论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A0%91/">树</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">2</span></li></ul>
     </div>
 
     
         
   <div class="box widget">
     <div class="title">归档</div>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">2021-03</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">2021-02</a><span class="archive-list-count">6</span></li></ul>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">2021-03</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">2021-02</a><span class="archive-list-count">6</span></li></ul>
   </div>
 
     
@@ -588,7 +776,7 @@
     <div class="box widget">
         <div class="title">标签</div>
         <div class="item-box cloud-label">
-            <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 10px;">二分</a> <a href="/tags/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/" style="font-size: 10px;">卡特兰数</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 10px;">并查集</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">数学</a> <a href="/tags/%E6%A0%91/" style="font-size: 10px;">树</a> <a href="/tags/%E8%83%8C%E5%8C%85/" style="font-size: 10px;">背包</a>
+            <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/vector/" style="font-size: 10px;">vector</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 10px;">二分</a> <a href="/tags/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/" style="font-size: 10px;">卡特兰数</a> <a href="/tags/%E5%9B%BE/" style="font-size: 10px;">图</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 10px;">并查集</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">数学</a> <a href="/tags/%E6%A0%91/" style="font-size: 10px;">树</a> <a href="/tags/%E8%83%8C%E5%8C%85/" style="font-size: 10px;">背包</a>
         </div>
     </div>
 
