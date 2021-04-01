@@ -111,7 +111,7 @@ int bfs(int n, int k)
           } else {
               q = p * 2;
           }
-          if (q&lt;0 && q&gt;=maxn) {
+          if (q&lt;0 || q&gt;=maxn) {
               continue;
           }
           if (!vis[q]) {
@@ -143,6 +143,7 @@ int main()
 }
 </code></pre>
 </li>
+<li>模板升级,但还是好简单<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1135">https://www.luogu.com.cn/problem/P1135</a></li>
 </ul>
 
     </div>
