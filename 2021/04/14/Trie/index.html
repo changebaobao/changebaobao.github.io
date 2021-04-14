@@ -8,25 +8,22 @@
 
 
 
-    <meta name="keywords" content="树,"/>
+    <meta name="keywords" content="-前缀树 -树,"/>
 
 
 
-    <meta name="description" content="哈夫曼编码长度求法（使用Stl等）
+    <meta name="description" content="前缀树
 
-http://acm.hdu.edu.cn/showproblem.php?pid=1053
 
-#include &lt;bits/stdc++.h&gt; 
-using namespace std;
-/*
-1.获取字符串
-2.map记录字符与其对应的出现..."/>
+ Trie树，即前缀树，又称单词查找树，字典树，是一种树形结构，是一种哈希树的变种。典型应用是用于统计和排序大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。
+
+Trie树的核心思想是空间换时间，利用字符串的公共前缀来降低查询时间的开销以达到提高效率的目的。..."/>
 
 
 <meta name="Robots" content="all">
 
 
-    <title>baobao&#39;s blog | 哈夫曼编码长度简便求法</title>
+    <title>baobao&#39;s blog | Trie</title>
 
 
 <link rel="icon" href="/images/favicon.ico">
@@ -60,17 +57,17 @@ using namespace std;
         <section class="content global-width">
             <div class="main">
                 <article class="box post">
-    <div class="post-title align-center detail-title">哈夫曼编码长度简便求法</div>
+    <div class="post-title align-center detail-title">Trie</div>
     <div class="post-meta align-center">
         
-        <i class="fa fa-calendar"></i> <time>2021-03-07</time>
+        <i class="fa fa-calendar"></i> <time>2021-04-14</time>
         <span class="dotted">|</span>
         <i class="fa fa-user"></i> 
         
             
                 <span class="dotted">|</span>
                 <i class="fa fa-folder-open-o"></i>
-                <a class="category-link" href="/categories/%E6%A0%91/">树</a>
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">-数据结构</a>
 
                 
                     <span class="dotted">|</span>
@@ -79,62 +76,66 @@ using namespace std;
             
             
                 <i class="fa fa-tags"></i>
-                <a class="tag-none-link" href="/tags/%E6%A0%91/" rel="tag">树</a>
+                <a class="tag-none-link" href="/tags/%E5%89%8D%E7%BC%80%E6%A0%91-%E6%A0%91/" rel="tag">-前缀树 -树</a>
             
         
     </div>
 
     <div class="post-content">
-        <h2 id="哈夫曼编码长度求法（使用Stl等）"><a href="#哈夫曼编码长度求法（使用Stl等）" class="headerlink" title="哈夫曼编码长度求法（使用Stl等）"></a>哈夫曼编码长度求法（使用Stl等）</h2><a id="more"></a>
+        <h3 id="前缀树"><a href="#前缀树" class="headerlink" title="前缀树"></a>前缀树</h3><a id="more"></a>
+
 <ul>
-<li><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1053">http://acm.hdu.edu.cn/showproblem.php?pid=1053</a></li>
+<li><p> Trie树，即前缀树，又称单词查找树，字典树，是一种树形结构，是一种哈希树的变种。典型应用是用于统计和排序大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。</p>
+</li>
+<li><p>Trie树的核心思想是空间换时间，利用字符串的公共前缀来降低查询时间的开销以达到提高效率的目的。 它的优点是：最大限度地减少无谓的字符串比较，查询效率比哈希表高。</p>
+</li>
+<li><p>模板题<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-trie-prefix-tree/">https://leetcode-cn.com/problems/implement-trie-prefix-tree/</a></p>
+<pre class=" language-c++"><code class="language-c++">//prefix 前缀
+class Trie {
+private:
+  vector&lt;Trie*&gt; children;
+  bool isEnd;
+
+  Trie* searchPrefix(string prefix)
+  {
+      Trie* node = this;
+      for (char ch : prefix) {
+          ch -= 'a';
+          if (node-&gt;children[ch] == nullptr) {
+              return nullptr;
+          }
+          node = node-&gt;children[ch];
+      }
+      return node;
+  }
+</code></pre>
+</li>
 </ul>
-<pre class=" language-c++"><code class="language-c++">#include &lt;bits/stdc++.h&gt; 
-using namespace std;
-/*
-1.获取字符串
-2.map记录字符与其对应的出现的次数
-3.按照从小到大的顺序入列priority_queue（优先队列）
-4.每次出队两个，相加后再次入队，并进行排序
-5.用ans记录每一次相加和temp值之和，当队列中剩下一个元素时，ans的值即为所求
-*/
-
-string s;
-int main()
-{
-
-    int ans = 0;
-    map&lt;char, int&gt; mp;
-    priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; q; //升序排列
-    getline(cin, s);
-    if (s == "END") {
-        break;
-    }
-    int len = s.length();
-    for (int i = 0; i &lt; len; i++) { //记录字符与其对应的出现的次数
-        if (mp.find(s[i]) == mp.end()) {
-            mp[s[i]] = 1;
-        } else {
-            mp[s[i]]++;
-        }
-    }
-    for (map&lt;char, int&gt;::iterator it = mp.begin(); it != mp.end(); it++) {
-        q.push(it-&gt;second); //字符出现的次数入队
-    }
-
-    while (q.size() != 1) {
-        int a, b, temp; //a，b记录最小的两个次数
-        a = q.top();
-        q.pop();
-        b = q.top();
-        q.pop();
-        temp = a + b; //队列中最小的两个次数相加
-        ans += temp;
-        q.push(temp); //最小的两个次数相加再次入队，优先队列自行排序
-    }
-    cout &lt;&lt; ans &lt;&lt; endl;
-    return 0;
-}
+<p>public:<br>    Trie(): children(26), isEnd(false) { }</p>
+<pre><code>void insert(string word)
+&#123;
+    Trie* node = this;
+    for (char ch : word) &#123;
+        ch -= &#39;a&#39;;
+        if (node-&gt;children[ch]==nullptr) &#123;
+            node-&gt;children[ch] = new Trie();
+        &#125;
+        node = node-&gt;children[ch];
+    &#125;
+    node-&gt;isEnd = true;
+&#125;
+//如果字符串 word 在前缀树中，返回 true（即，在检索之前已经插入）；否则，返回 false 。
+bool search(string word) &#123;
+    Trie* node = this-&gt;searchPrefix(word);
+    return node != nullptr &amp;&amp; node-&gt;isEnd;
+&#125;
+//如果之前已经插入的字符串 word 的前缀之一为 prefix ，返回 true ；否则，返回 false 。
+bool startsWith(string prefix) &#123;
+    return this-&gt;searchPrefix(prefix) != nullptr;
+&#125;
+</code></pre>
+<p>};</p>
+<pre><code>
 </code></pre>
 
     </div>

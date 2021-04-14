@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Trie</title>
+      <link href="2021/04/14/Trie/"/>
+      <url>2021/04/14/Trie/</url>
+      
+        <content type="html"><![CDATA[<h3 id="前缀树"><a href="#前缀树" class="headerlink" title="前缀树"></a>前缀树</h3><a id="more"></a><ul><li><p> Trie树，即前缀树，又称单词查找树，字典树，是一种树形结构，是一种哈希树的变种。典型应用是用于统计和排序大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。</p></li><li><p>Trie树的核心思想是空间换时间，利用字符串的公共前缀来降低查询时间的开销以达到提高效率的目的。 它的优点是：最大限度地减少无谓的字符串比较，查询效率比哈希表高。</p></li><li><p>模板题<a href="https://leetcode-cn.com/problems/implement-trie-prefix-tree/">https://leetcode-cn.com/problems/implement-trie-prefix-tree/</a></p><pre class=" language-c++"><code class="language-c++">//prefix 前缀class Trie {private:  vector&lt;Trie*&gt; children;  bool isEnd;  Trie* searchPrefix(string prefix)  {      Trie* node = this;      for (char ch : prefix) {          ch -= 'a';          if (node-&gt;children[ch] == nullptr) {              return nullptr;          }          node = node-&gt;children[ch];      }      return node;  }</code></pre></li></ul><p>public:<br>    Trie(): children(26), isEnd(false) { }</p><pre><code>void insert(string word)&#123;    Trie* node = this;    for (char ch : word) &#123;        ch -= &#39;a&#39;;        if (node-&gt;children[ch]==nullptr) &#123;            node-&gt;children[ch] = new Trie();        &#125;        node = node-&gt;children[ch];    &#125;    node-&gt;isEnd = true;&#125;//如果字符串 word 在前缀树中，返回 true（即，在检索之前已经插入）；否则，返回 false 。bool search(string word) &#123;    Trie* node = this-&gt;searchPrefix(word);    return node != nullptr &amp;&amp; node-&gt;isEnd;&#125;//如果之前已经插入的字符串 word 的前缀之一为 prefix ，返回 true ；否则，返回 false 。bool startsWith(string prefix) &#123;    return this-&gt;searchPrefix(prefix) != nullptr;&#125;</code></pre><p>};</p><pre><code></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> -数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -前缀树 -树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>最短路径</title>
       <link href="2021/03/21/the-short-path/"/>
       <url>2021/03/21/the-short-path/</url>
