@@ -8,17 +8,23 @@
 
 
 
-    <meta name="keywords" content=""/>
+    <meta name="keywords" content="leetcode刷题记录,"/>
 
 
 
-    <meta name="description" content=""/>
+    <meta name="description" content="滑动窗口 + 有序集合， ，桶（以后再说）
+
+引言
+本来很简单的一道题，结果首先是int不能用，然后又是超时啊，是我不配了，，，以下均是复制粘贴，，，比我想得要复杂得多的多，，
+但收获总是有的，比如  ：lower_bound，，，INT_MAX ，，，INT_MIN
+
+存在重复元素IIIht..."/>
 
 
 <meta name="Robots" content="all">
 
 
-    <title>baobao&#39;s blog</title>
+    <title>baobao&#39;s blog | 存在重复元素</title>
 
 
 <link rel="icon" href="/images/favicon.ico">
@@ -51,49 +57,70 @@
 
         <section class="content global-width">
             <div class="main">
-                
-    
-        <article class="box post post-item">
-            <div class="post-title"><a href="/2021/02/08/vector/">vector(动态数组)</a></div>
-            <div class="post-meta">
-                
-                <i class="fa fa-calendar"></i> <time>2021-02-08</time>
+                <article class="box post">
+    <div class="post-title align-center detail-title">存在重复元素</div>
+    <div class="post-meta align-center">
+        
+        <i class="fa fa-calendar"></i> <time>2021-04-17</time>
+        <span class="dotted">|</span>
+        <i class="fa fa-user"></i> 
+        
+            
                 <span class="dotted">|</span>
-                <i class="fa fa-user"></i> 
-            </div>
+                <i class="fa fa-folder-open-o"></i>
+                <a class="category-link" href="/categories/%E6%9C%AA%E7%9F%A5/">未知</a>
 
-            <div class="post-excerpt">
-                <a href="/2021/02/08/vector/">
-                    <p>
-                        
-                            c++stl库中vector的基本用法
-                        
-                    </p>
-                </a>
-            </div>
+                
+                    <span class="dotted">|</span>
+                
 
             
-                <div class="post-footer">
-                    
-                        <i class="fa fa-folder-open-o"></i>
-                        <a class="category-link" href="/categories/STL/">STL</a>
-
-                        
-                            <span class="dotted">|</span>
-                        
-
-                    
-                    
-                        <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/vector/" rel="tag">vector</a>
-                    
-                </div>
             
-        </article>
-    
+                <i class="fa fa-tags"></i>
+                <a class="tag-none-link" href="/tags/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="tag">leetcode刷题记录</a>
+            
+        
+    </div>
 
+    <div class="post-content">
+        <h3 id="滑动窗口-有序集合，-，桶（以后再说）"><a href="#滑动窗口-有序集合，-，桶（以后再说）" class="headerlink" title="滑动窗口 + 有序集合， ，桶（以后再说）"></a>滑动窗口 + 有序集合， ，桶（以后再说）</h3><a id="more"></a>
 
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><ul>
+<li>本来很简单的一道题，结果首先是int不能用，然后又是超时啊，是我不配了，，，以下均是复制粘贴，，，比我想得要复杂得多的多，，</li>
+<li>但收获总是有的，比如  ：lower_bound，，，INT_MAX ，，，INT_MIN</li>
+</ul>
+<h2 id="存在重复元素IIIhttps-leetcode-cn-com-problems-contains-duplicate-iii"><a href="#存在重复元素IIIhttps-leetcode-cn-com-problems-contains-duplicate-iii" class="headerlink" title="存在重复元素IIIhttps://leetcode-cn.com/problems/contains-duplicate-iii/"></a>存在重复元素III<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/contains-duplicate-iii/">https://leetcode-cn.com/problems/contains-duplicate-iii/</a></h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>对于序列中每一个元素 x 左侧的至多 k 个元素，如果这 k 个元素中存在一个元素落在区间 [x - t, x + t]中，我们就找到了一对符合条件的元素。注意到对于两个相邻的元素，它们各自的左侧的 k 个元素中有 k - 1 个是重合的。于是我们可以使用滑动窗口的思路，维护一个大小为 k 的滑动窗口，每次遍历到元素 x 时，滑动窗口中包含元素 x 前面的最多 k 个元素，我们检查窗口中是否存在元素落在区间 [x - t, x + t]中即可。</li>
+<li>采用有序集合支持添加和删除指定元素，并进行二分查找</li>
+<li>细节还有好多，具体参考<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/contains-duplicate-iii/solution/cun-zai-zhong-fu-yuan-su-iii-by-leetcode-bbkt/">https://leetcode-cn.com/problems/contains-duplicate-iii/solution/cun-zai-zhong-fu-yuan-su-iii-by-leetcode-bbkt/</a><pre class=" language-c++"><code class="language-c++">class Solution {
+public:
+  bool containsNearbyAlmostDuplicate(vector&lt;int&gt;& nums, int k, int t)
+  {
+      int n = nums.size();
+      set&lt;int&gt; rec;
+      for (int i = 0; i &lt; n; i++) {
+          //有序集合中查找大于等于 x - t 的最小的元素 y
+          auto iter = rec.lower_bound(max(nums[i], INT_MIN + t) - t);
+          //如果 y 存在，且 y &lt;= x  + t
+          if (iter != rec.end() && *iter &lt;= min(nums[i], INT_MAX - t) + t) {
+              return true;
+          }
+          //完成检查后，我们将 x 插入到有序集合中
+          rec.insert(nums[i]);
+          //如果有序集合中元素数量超过了 k，我们将有序集合中最早被插入的元素删除即可。
+          if (i &gt;= k) {
+              rec.erase(nums[i - k]);
+          }
+      }
+      return false;
+  }
+};
+</code></pre>
+</li>
+</ul>
 
+    </div>
+</article>
             </div>
             <div class="aside">
     
