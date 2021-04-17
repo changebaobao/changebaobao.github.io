@@ -20,7 +20,7 @@
       
         <tags>
             
-            <tag> -leetcode刷题记录 </tag>
+            <tag> leetcode刷题记录 </tag>
             
         </tags>
       
@@ -45,7 +45,7 @@
       
         <tags>
             
-            <tag> -leetcode刷题记录 </tag>
+            <tag> leetcode刷题记录 </tag>
             
         </tags>
       
@@ -70,7 +70,7 @@
       
         <tags>
             
-            <tag> -leetcode刷题记录 </tag>
+            <tag> leetcode刷题记录 </tag>
             
         </tags>
       
@@ -88,7 +88,7 @@
       
       <categories>
           
-          <category> 算法 </category>
+          <category> 数据结构 </category>
           
       </categories>
       
@@ -132,7 +132,7 @@
       
       <categories>
           
-          <category> 广度优先搜索 </category>
+          <category> 算法 </category>
           
       </categories>
       
@@ -182,7 +182,7 @@
       
       <categories>
           
-          <category> 树 </category>
+          <category> 数据结构 </category>
           
       </categories>
       
@@ -231,8 +231,6 @@
       
       
       <categories>
-          
-          <category> C++ </category>
           
           <category> 算法 </category>
           
@@ -284,8 +282,6 @@
       
       <categories>
           
-          <category> C++ </category>
-          
           <category> STL </category>
           
       </categories>
@@ -311,8 +307,6 @@
       
       <categories>
           
-          <category> C++ </category>
-          
           <category> STL </category>
           
       </categories>
@@ -337,8 +331,6 @@
       
       
       <categories>
-          
-          <category> C++ </category>
           
           <category> STL </category>
           
@@ -391,8 +383,6 @@
       
       
       <categories>
-          
-          <category> C++ </category>
           
           <category> STL </category>
           
