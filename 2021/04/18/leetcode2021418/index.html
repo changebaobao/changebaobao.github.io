@@ -8,17 +8,21 @@
 
 
 
-    <meta name="keywords" content=""/>
+    <meta name="keywords" content="leetcode刷题记录,"/>
 
 
 
-    <meta name="description" content=""/>
+    <meta name="description" content="双指针思想
+
+引言
+毕竟这是一道简单题，暴力法是完全可以的，正文开始删除有序数组中的重复项https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/submissions/暴力法
+在这个数组中前后比较，用另一个数组..."/>
 
 
 <meta name="Robots" content="all">
 
 
-    <title>baobao&#39;s blog</title>
+    <title>baobao&#39;s blog | 删除有序数组中的重复项</title>
 
 
 <link rel="icon" href="/images/favicon.ico">
@@ -51,49 +55,86 @@
 
         <section class="content global-width">
             <div class="main">
-                
-    
-        <article class="box post post-item">
-            <div class="post-title"><a href="/2021/02/08/vector/">vector(动态数组)</a></div>
-            <div class="post-meta">
-                
-                <i class="fa fa-calendar"></i> <time>2021-02-08</time>
+                <article class="box post">
+    <div class="post-title align-center detail-title">删除有序数组中的重复项</div>
+    <div class="post-meta align-center">
+        
+        <i class="fa fa-calendar"></i> <time>2021-04-18</time>
+        <span class="dotted">|</span>
+        <i class="fa fa-user"></i> 
+        
+            
                 <span class="dotted">|</span>
-                <i class="fa fa-user"></i> 
-            </div>
+                <i class="fa fa-folder-open-o"></i>
+                <a class="category-link" href="/categories/%E6%9C%AA%E7%9F%A5%E7%AE%97%E6%B3%95/">未知算法</a>
 
-            <div class="post-excerpt">
-                <a href="/2021/02/08/vector/">
-                    <p>
-                        
-                            c++stl库中vector的基本用法
-                        
-                    </p>
-                </a>
-            </div>
+                
+                    <span class="dotted">|</span>
+                
 
             
-                <div class="post-footer">
-                    
-                        <i class="fa fa-folder-open-o"></i>
-                        <a class="category-link" href="/categories/STL/">STL</a>
-
-                        
-                            <span class="dotted">|</span>
-                        
-
-                    
-                    
-                        <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/vector/" rel="tag">vector</a>
-                    
-                </div>
             
-        </article>
-    
+                <i class="fa fa-tags"></i>
+                <a class="tag-none-link" href="/tags/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="tag">leetcode刷题记录</a>
+            
+        
+    </div>
 
+    <div class="post-content">
+        <h2 id="双指针思想"><a href="#双指针思想" class="headerlink" title="双指针思想"></a>双指针思想</h2><a id="more"></a>
 
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><ul>
+<li>毕竟这是一道简单题，暴力法是完全可以的，正文开始<h2 id="删除有序数组中的重复项https-leetcode-cn-com-problems-remove-duplicates-from-sorted-array-submissions"><a href="#删除有序数组中的重复项https-leetcode-cn-com-problems-remove-duplicates-from-sorted-array-submissions" class="headerlink" title="删除有序数组中的重复项https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/submissions/"></a>删除有序数组中的重复项<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/submissions/">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/submissions/</a></h2><h3 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h3></li>
+<li>在这个数组中前后比较，用另一个数组记录不重复的项，然后再copy一下就行了<pre class=" language-c++"><code class="language-c++">class Solution {
+public:
+  int removeDuplicates(vector&lt;int&gt;& nums)
+  {
+      int length = nums.size();
+      if (length == 0) {
+          return 0;
+      }
+      vector&lt;int&gt; v;
+      v.push_back(nums[0]);
+      for (int i = 0; i &lt; length-1; i++) {
+          if (nums[i]!=nums[i+1]) {
+              v.push_back(nums[i+1]);
+          }
+      }
+      for (int i = 0; i &lt; v.size(); i++) {
+          nums[i] = v[i];
+      }
+      return v.size();
+  }
+};
+</code></pre>
+<h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3></li>
+<li>就是用两个类似于指针的东西在原数组上进行操作，判断对应的项是否重复，再进行指针的加加，还要对项的值进行一下修改，，，</li>
+<li>时间复杂度：O(n)，其中 n 是数组的长度。快指针和慢指针最多各移动 n 次。</li>
+<li>空间复杂度：O(1)。只需要使用常数的额外空间。<pre class=" language-c++"><code class="language-c++">class Solution {
+public:
+  int removeDuplicates(vector&lt;int&gt;& nums)
+  {
+      if (nums.size() == 0) {
+          return 0;
+      }
+      //双指针
+      int p = 0, q = 1;
+      while (q &lt; nums.size()) {
+          if (nums[p]!=nums[q]) {
+              nums[p + 1] = nums[q];
+              p++;
+          }
+          q++;
+      }
+      return p + 1;
+  }
+};
+</code></pre>
+</li>
+</ul>
 
+    </div>
+</article>
             </div>
             <div class="aside">
     
