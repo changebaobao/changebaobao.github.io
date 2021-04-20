@@ -8,21 +8,28 @@
 
 
 
-    <meta name="keywords" content="leetcode刷题记录,"/>
+    <meta name="keywords" content="图,"/>
 
 
 
-    <meta name="description" content="双指针思想
+    <meta name="description" content="Kruskal, Prim
 
-引言
-毕竟这是一道简单题，暴力法是完全可以的，正文开始删除有序数组中的重复项https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/submissions/暴力法
-在这个数组中前后比较，用另一个数组..."/>
+
+
+Kruskalstruct node { //存储边及边权
+    int u, v, dis;
+} e[M];
+bool cmp(node x, node y)
+{ //sort的比较函数
+    return x.dis &lt; y.dis;
+}
+int..."/>
 
 
 <meta name="Robots" content="all">
 
 
-    <title>baobao&#39;s blog | 删除有序数组中的重复项</title>
+    <title>baobao&#39;s blog | 最小生成树</title>
 
 
 <link rel="icon" href="/images/favicon.ico">
@@ -56,17 +63,17 @@
         <section class="content global-width">
             <div class="main">
                 <article class="box post">
-    <div class="post-title align-center detail-title">删除有序数组中的重复项</div>
+    <div class="post-title align-center detail-title">最小生成树</div>
     <div class="post-meta align-center">
         
-        <i class="fa fa-calendar"></i> <time>2021-04-18</time>
+        <i class="fa fa-calendar"></i> <time>2021-04-20</time>
         <span class="dotted">|</span>
         <i class="fa fa-user"></i> 
         
             
                 <span class="dotted">|</span>
                 <i class="fa fa-folder-open-o"></i>
-                <a class="category-link" href="/categories/%E6%9C%AA%E7%9F%A5%E7%AE%97%E6%B3%95/">未知算法</a>
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
 
                 
                     <span class="dotted">|</span>
@@ -75,82 +82,112 @@
             
             
                 <i class="fa fa-tags"></i>
-                <a class="tag-none-link" href="/tags/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="tag">leetcode刷题记录</a>
+                <a class="tag-none-link" href="/tags/%E5%9B%BE/" rel="tag">图</a>
             
         
     </div>
 
     <div class="post-content">
-        <h2 id="双指针思想"><a href="#双指针思想" class="headerlink" title="双指针思想"></a>双指针思想</h2><a id="more"></a>
+        <h2 id="Kruskal-Prim"><a href="#Kruskal-Prim" class="headerlink" title="Kruskal, Prim"></a>Kruskal, Prim</h2><a id="more"></a>
 
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><ul>
-<li>毕竟这是一道简单题，暴力法是完全可以的，正文开始<h2 id="删除有序数组中的重复项https-leetcode-cn-com-problems-remove-duplicates-from-sorted-array-submissions"><a href="#删除有序数组中的重复项https-leetcode-cn-com-problems-remove-duplicates-from-sorted-array-submissions" class="headerlink" title="删除有序数组中的重复项https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/submissions/"></a>删除有序数组中的重复项<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/submissions/">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/submissions/</a></h2><h3 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h3></li>
-<li>在这个数组中前后比较，用另一个数组记录不重复的项，然后再copy一下就行了<pre class=" language-c++"><code class="language-c++">class Solution {
-public:
-  int removeDuplicates(vector&lt;int&gt;& nums)
-  {
-      int length = nums.size();
-      if (length == 0) {
-          return 0;
-      }
-      vector&lt;int&gt; v;
-      v.push_back(nums[0]);
-      for (int i = 0; i &lt; length-1; i++) {
-          if (nums[i]!=nums[i+1]) {
-              v.push_back(nums[i+1]);
-          }
-      }
-      for (int i = 0; i &lt; v.size(); i++) {
-          nums[i] = v[i];
-      }
-      return v.size();
-  }
-};
+
+
+<h2 id="Kruskal"><a href="#Kruskal" class="headerlink" title="Kruskal"></a>Kruskal</h2><pre class=" language-c++"><code class="language-c++">struct node { //存储边及边权
+    int u, v, dis;
+} e[M];
+bool cmp(node x, node y)
+{ //sort的比较函数
+    return x.dis &lt; y.dis;
+}
+int father[N]; //存放每个节点的父亲节点的father数组
+int findfather(int v)
+{ //查找节点的父亲节点
+    if (father[v] == v)
+        return v;
+    else {
+        int F = findfather(father[v]);
+        father[v] = F;
+        return F;
+    }
+}
+int Kruskal(int n, int m)
+{
+    int ans = 0, num_edge = 0;
+    //ans为所求最小生成树的边权之和，num_edge为当前生成树的边数
+    for (int i = 0; i &lt; n; i++) { //father[]初始化，注意节点的范围（以0 - n为例）
+        father[i] = i;
+    }
+    sort(e, e + m, cmp); //对边的权值按照从小到大排序
+    for (int i = 0; i &lt; m; i++) {
+        int fu = findfather(e[i].u);
+        int fv = findfather(e[i].v);
+        if (fu != fv) { //如果两个节点的父亲节点不同，则将次边加入最小生成树
+            ans += e[i].dis; //加上边权
+            father[fu] = fv;
+            num_edge++;
+            if (num_edge == n - 1) //如果最小生成树的边数目达到节点数减一，就退出
+                break;
+        }
+    }
+    return ans;
+}
 </code></pre>
-<h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3></li>
-<li>就是用两个类似于指针的东西在原数组上进行操作，判断对应的项是否重复，再进行指针的加加，还要对项的值进行一下修改，，，</li>
-<li>快指针一直动，遍历整个数组，满指针看情况动，一般决定改动后的数组</li>
-<li>时间复杂度：O(n)，其中 n 是数组的长度。快指针和慢指针最多各移动 n 次。</li>
-<li>空间复杂度：O(1)。只需要使用常数的额外空间。<pre class=" language-c++"><code class="language-c++">class Solution {
-public:
-  int removeDuplicates(vector&lt;int&gt;& nums)
-  {
-      if (nums.size() == 0) {
-          return 0;
-      }
-      //双指针，快指针一直进行变化，满指针看情况
-      int p = 0, q = 1;
-      while (q &lt; nums.size()) {
-          if (nums[p]!=nums[q]) {
-              nums[p + 1] = nums[q];
-              p++;
-          }
-          q++;
-      }
-      return p + 1;
-  }
-};
+<h2 id="Prim"><a href="#Prim" class="headerlink" title="Prim"></a>Prim</h2><pre class=" language-c++"><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int inf = 0x3f3f3f3f;
+const int maxx = 1100;
+int e[maxx][maxx], dis[maxx];
+bool book[maxx];
+int n, m;
+void init()
+{
+    for (int i = 0; i &lt; n; i++)
+        for (int j = 0; j &lt; n; j++)
+            if (i == j)
+                e[i][j] = 0;
+            else
+                e[i][j] = inf;
+}
+int prim(int e[][maxx], int n)
+{
+    int ans = 0;
+    memset(book, false, sizeof(book));
+    book[0] = true;
+    for (int i = 1; i &lt; n; i++)
+        dis[i] = e[0][i];
+    for (int i = 1; i &lt; n; i++) {
+        int minn = inf, u = -1;
+        for (int j = 0; j &lt; n; j++) {
+            if (!book[j] && dis[j] &lt; minn) {
+                minn = dis[j];
+                u = j;
+            }
+        }
+        if (ans == inf)
+            return -1;
+        ans += minn;
+        book[u] = true;
+        for (int v = 0; v &lt; n; v++)
+            if (!book[v])
+                dis[v] = min(dis[v], e[u][v]);
+    }
+    return ans;
+}
+int main()
+{
+    while (cin &gt;&gt; m &gt;&gt; n) {
+        init();
+        for (int i = 0; i &lt; n; i++) {
+            int a, b, c;
+            cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+            if (e[a - 1][b - 1] &gt; c)
+                e[a - 1][b - 1] = e[b - 1][a - 1] = c;
+        }
+        cout &lt;&lt; prim(e, m) &lt;&lt; endl;
+    }
+    return 0;
+}
 </code></pre>
-<h2 id="移除元素https-leetcode-cn-com-problems-remove-element"><a href="#移除元素https-leetcode-cn-com-problems-remove-element" class="headerlink" title="移除元素https://leetcode-cn.com/problems/remove-element/"></a>移除元素<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-element/">https://leetcode-cn.com/problems/remove-element/</a></h2><h2 id="双指针（思路略有不同）"><a href="#双指针（思路略有不同）" class="headerlink" title="双指针（思路略有不同）"></a>双指针（思路略有不同）</h2><pre class=" language-c++"><code class="language-c++">class Solution {
-public:
-  int removeElement(vector&lt;int&gt;& nums, int val)
-  {
-      //因为第一个元素也得进行判断，所以快慢指针初始位置相同
-      int slowindex = 0;
-      int fastindex = 0;
-      while (fastindex &lt; nums.size()) {
-          if (nums[fastindex] != val) {
-              nums[slowindex] = nums[fastindex];
-              slowindex++;
-          }
-          fastindex++;
-      }
-      return slowindex;
-  }
-};
-</code></pre>
-</li>
-</ul>
 
     </div>
 </article>
