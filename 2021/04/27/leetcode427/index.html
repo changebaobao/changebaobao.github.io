@@ -8,17 +8,22 @@
 
 
 
-    <meta name="keywords" content=""/>
+    <meta name="keywords" content="leetcode刷题记录,"/>
 
 
 
-    <meta name="description" content=""/>
+    <meta name="description" content="二叉搜索树的性质
+题目https://leetcode-cn.com/problems/range-sum-of-bst/
+可以直接遍历，但是考虑到二叉搜索树的性质，做法如下。。。。
+特点：左比根小，右比根大深搜class Solution {
+public:
+  int rangeSumBS..."/>
 
 
 <meta name="Robots" content="all">
 
 
-    <title>baobao&#39;s blog</title>
+    <title>baobao&#39;s blog | 二叉搜索树</title>
 
 
 <link rel="icon" href="/images/favicon.ico">
@@ -51,49 +56,83 @@
 
         <section class="content global-width">
             <div class="main">
-                
-    
-        <article class="box post post-item">
-            <div class="post-title"><a href="/2021/03/18/bfs/">bfs</a></div>
-            <div class="post-meta">
-                
-                <i class="fa fa-calendar"></i> <time>2021-03-18</time>
+                <article class="box post">
+    <div class="post-title align-center detail-title">二叉搜索树</div>
+    <div class="post-meta align-center">
+        
+        <i class="fa fa-calendar"></i> <time>2021-04-27</time>
+        <span class="dotted">|</span>
+        <i class="fa fa-user"></i> 
+        
+            
                 <span class="dotted">|</span>
-                <i class="fa fa-user"></i> 
-            </div>
+                <i class="fa fa-folder-open-o"></i>
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
 
-            <div class="post-excerpt">
-                <a href="/2021/03/18/bfs/">
-                    <p>
-                        
-                            简简单单的bfs模板
-                        
-                    </p>
-                </a>
-            </div>
+                
+                    <span class="dotted">|</span>
+                
 
             
-                <div class="post-footer">
-                    
-                        <i class="fa fa-folder-open-o"></i>
-                        <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-
-                        
-                            <span class="dotted">|</span>
-                        
-
-                    
-                    
-                        <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/bfs/" rel="tag">bfs</a>
-                    
-                </div>
             
-        </article>
-    
+                <i class="fa fa-tags"></i>
+                <a class="tag-none-link" href="/tags/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="tag">leetcode刷题记录</a>
+            
+        
+    </div>
 
+    <div class="post-content">
+        <h2 id="二叉搜索树的性质"><a href="#二叉搜索树的性质" class="headerlink" title="二叉搜索树的性质"></a>二叉搜索树的性质</h2><a id="more"></a>
+<h2 id="题目https-leetcode-cn-com-problems-range-sum-of-bst"><a href="#题目https-leetcode-cn-com-problems-range-sum-of-bst" class="headerlink" title="题目https://leetcode-cn.com/problems/range-sum-of-bst/"></a>题目<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/range-sum-of-bst/">https://leetcode-cn.com/problems/range-sum-of-bst/</a></h2><ul>
+<li>可以直接遍历，但是考虑到二叉搜索树的性质，做法如下。。。。</li>
+<li>特点：左比根小，右比根大<h3 id="深搜"><a href="#深搜" class="headerlink" title="深搜"></a>深搜</h3><pre class=" language-c++"><code class="language-c++">class Solution {
+public:
+  int rangeSumBST(TreeNode* root, int low, int high)
+  {
+      if (root == nullptr) {
+          return 0;
+      }
+      if (root-&gt;val &gt; high) {
+          return rangeSumBST(root-&gt;left, low, high);
+      }
+      if (root-&gt;val &lt; low) {
+          return rangeSumBST(root-&gt;right, low, high);
+      }
+      return root-&gt;val + rangeSumBST(root-&gt;left, low, high) + rangeSumBST(root-&gt;right, low, high);
+  }
+};
+</code></pre>
+<h3 id="广搜"><a href="#广搜" class="headerlink" title="广搜"></a>广搜</h3><pre class=" language-c++"><code class="language-c++">class Solution {
+public:
+  int rangeSumBST(TreeNode* root, int low, int high)
+  {
+      int sum = 0;
+      queue&lt;TreeNode*&gt; q({ root });
+      while (!q.empty()) {
+          auto node = q.front();
+          q.pop();
+          if (node == nullptr) {
+              continue;
+          }
+          if (node-&gt;val &gt; high) {
+              q.push(node-&gt;left);
+          } else if (node-&gt;val &lt; low) {
+              q.push(node-&gt;right);
+          } else {
+              sum += node-&gt;val;
+              q.push(node-&gt;left);
+              q.push(node-&gt;right);
+          }
+      }
+      return sum;
+  }
+};
+</code></pre>
+</li>
+</ul>
 
-
+    </div>
+</article>
             </div>
             <div class="aside">
     

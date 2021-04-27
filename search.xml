@@ -4,7 +4,32 @@
   
     
     <entry>
-      <title>leetcode2021421</title>
+      <title>二叉搜索树</title>
+      <link href="2021/04/27/leetcode427/"/>
+      <url>2021/04/27/leetcode427/</url>
+      
+        <content type="html"><![CDATA[<h2 id="二叉搜索树的性质"><a href="#二叉搜索树的性质" class="headerlink" title="二叉搜索树的性质"></a>二叉搜索树的性质</h2><a id="more"></a><h2 id="题目https-leetcode-cn-com-problems-range-sum-of-bst"><a href="#题目https-leetcode-cn-com-problems-range-sum-of-bst" class="headerlink" title="题目https://leetcode-cn.com/problems/range-sum-of-bst/"></a>题目<a href="https://leetcode-cn.com/problems/range-sum-of-bst/">https://leetcode-cn.com/problems/range-sum-of-bst/</a></h2><ul><li>可以直接遍历，但是考虑到二叉搜索树的性质，做法如下。。。。</li><li>特点：左比根小，右比根大<h3 id="深搜"><a href="#深搜" class="headerlink" title="深搜"></a>深搜</h3><pre class=" language-c++"><code class="language-c++">class Solution {public:  int rangeSumBST(TreeNode* root, int low, int high)  {      if (root == nullptr) {          return 0;      }      if (root-&gt;val &gt; high) {          return rangeSumBST(root-&gt;left, low, high);      }      if (root-&gt;val &lt; low) {          return rangeSumBST(root-&gt;right, low, high);      }      return root-&gt;val + rangeSumBST(root-&gt;left, low, high) + rangeSumBST(root-&gt;right, low, high);  }};</code></pre><h3 id="广搜"><a href="#广搜" class="headerlink" title="广搜"></a>广搜</h3><pre class=" language-c++"><code class="language-c++">class Solution {public:  int rangeSumBST(TreeNode* root, int low, int high)  {      int sum = 0;      queue&lt;TreeNode*&gt; q({ root });      while (!q.empty()) {          auto node = q.front();          q.pop();          if (node == nullptr) {              continue;          }          if (node-&gt;val &gt; high) {              q.push(node-&gt;left);          } else if (node-&gt;val &lt; low) {              q.push(node-&gt;right);          } else {              sum += node-&gt;val;              q.push(node-&gt;left);              q.push(node-&gt;right);          }      }      return sum;  }};</code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode刷题记录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>解码方法</title>
       <link href="2021/04/21/leetcode2021421/"/>
       <url>2021/04/21/leetcode2021421/</url>
       
