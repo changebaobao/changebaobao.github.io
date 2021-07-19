@@ -92,8 +92,8 @@ substr函数的形式为s.substr(pos, n)，..."/>
 </ul>
 <h2 id="C-中-string-substr-函数的使用方法"><a href="#C-中-string-substr-函数的使用方法" class="headerlink" title="C++中 string.substr() 函数的使用方法"></a>C++中 string.substr() 函数的使用方法</h2><ul>
 <li>substr函数的形式为s.substr(pos, n)，需要两个参数，第一个是开始位置(默认为0)，第二个是获取子串的长度（默认为 s.size() - pos）。<pre class=" language-c++"><code class="language-c++">string s("12345asdf");
-　　string a = s.substr(0,5);     //获得字符串s中从第0位开始的长度为5的字符串
-　　cout &lt;&lt; a &lt;&lt; endl;            //
+string a = s.substr(0,5);     //获得字符串s中从第0位开始的长度为5的字符串
+cout &lt;&lt; a &lt;&lt; endl;            //12345
 </code></pre>
 <h2 id="最长回文子串https-leetcode-cn-com-problems-longest-palindromic-substring"><a href="#最长回文子串https-leetcode-cn-com-problems-longest-palindromic-substring" class="headerlink" title="最长回文子串https://leetcode-cn.com/problems/longest-palindromic-substring/"></a>最长回文子串<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-palindromic-substring/">https://leetcode-cn.com/problems/longest-palindromic-substring/</a></h2><h3 id="方法一：动态规划"><a href="#方法一：动态规划" class="headerlink" title="方法一：动态规划"></a>方法一：动态规划</h3></li>
 <li>对于一个子串而言，如果它是回文串，并且长度大于 2，那么将它首尾的两个字母去除之后，它仍然是个回文串，，，万恶的动态规划思想，，，用 dp[i][j] 表示字符串 s 的第 i 到 j 个字母组成的串是否为回文串.</li>
@@ -110,7 +110,7 @@ public:
       int maxlen = 1;
       int begin = 0;
       // 好牛逼的初始化，长见识了
-      vector&lt;vector&lt;int&gt;&gt; dp(n, vector&lt;int&gt;(n));
+      vector&lt;vector&lt;int&gt;&gt; dp(n, vector&lt;int&gt;(n)); //n行n列
       //初始化已知条件
       for (int i = 0; i &lt; n; i++) {
           dp[i][i] = true;
@@ -151,13 +151,23 @@ public:
             </div>
             <div class="aside">
     
+        <div class="box widget">
+    <div class="introduction">
+        <p><img src="/images/avatar.jpg" alt="head-sculpture" /></p>
+        <p class="name">
+            博落回
+        </p>
+        <p class="slogan">流连矣 忘景幻云催 峦栈醺醺说旧梦 重山迟迟映霞辉 向晚共邀归 —— 忆江南</p>
+    </div>
+</div>
+    
         
 <div class="box widget">
     <div class="title">最新</div>
     <ul class="item-box">
         
             
-                <li><a href="/2021/04/27/leetcode427/">二叉搜索树</a></li>
+                <li><a href="/2021/04/27/leetcode427/">二叉搜索（排序）树</a></li>
             
         
             
